@@ -33,7 +33,7 @@
 <meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9163aac12fa247a9b317752e7513c3e9~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=483&h=233&e=png&b=000000">
 <meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/71d07765f66a4466b52c60ee8848975e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=459&h=386&e=png&b=000000">
 <meta property="article:published_time" content="2023-08-30T16:09:48.000Z">
-<meta property="article:modified_time" content="2023-09-01T03:10:08.230Z">
+<meta property="article:modified_time" content="2023-09-01T07:04:41.835Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="git">
 <meta name="twitter:card" content="summary_large_image">
@@ -257,7 +257,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.8k words
+          2.9k words
         
       </span>
     
@@ -268,7 +268,7 @@
         
         
         
-          24 mins
+          25 mins
         
       </span>
     
@@ -310,7 +310,7 @@
               <p class="note note-info">
                 
                   
-                    Last updated on September 1, 2023 am
+                    Last updated on September 1, 2023 pm
                   
                 
               </p>
@@ -354,7 +354,7 @@
 <li><code>git add readme.txt</code></li>
 <li><code>git commit -m &quot;write readme txt&quot;</code></li>
 </ul>
-<p><code>git add readme.txt</code> 表示告诉git,将文件添加到仓库中，无输出则成功。</p>
+<p><code>git add readme.txt</code> 表示告诉git,将文件添加到暂存区中，无输出则成功。也可以采用<code>git add .</code>表示添加变更的文件到暂存区；</p>
 <p><code>git commit -m &quot;本次提交的说明&quot;</code> 表示告诉git，将代码提交到仓库，后面附带对本次提交的说明。该语句执行完会返回一个文件被修改，插入了n行内容（取决于你写了多少内容）。为什么Git添加文件需要<code>add</code>，<code>commit</code>一共两步呢？因为<code>commit</code>可以一次提交很多文件，所以你可以多次<code>add</code>不同的文件。</p>
 <img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/70ca0240e2ca4c1193b646f0e9a1df1d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=722&h=156&e=png&b=000000" srcset="/img/loading.gif" lazyload width="50%" />
 
@@ -398,7 +398,7 @@
 </li>
 <li><p>添加文件</p>
 <ul>
-<li><code>git add</code> 文件名+后缀 将文件加入版本库</li>
+<li><code>git add &lt;file&gt;</code> 将文件加入版本库，<code>git add .</code>添加所有的变更文件到暂存区</li>
 <li><code>git commit -m &quot;提交说明内容&quot;</code> 将文件提交到版本库</li>
 </ul>
 </li>
