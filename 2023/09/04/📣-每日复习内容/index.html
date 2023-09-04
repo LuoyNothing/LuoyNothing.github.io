@@ -16,31 +16,22 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="在解决这个问题的过程中，我经历了三个阶段，很磨人最终还是回到了起点，发现最初的方法最好，如果赶时间，可以直接看第三个阶段。 🌸第一阶段：将图片保存在本地搭建好个人博客网站之后，写了两篇markdown文章（这时候我图片用的是网络地址），然后按照hexo三连上传了文章，最后在浏览器打开发现图像不显示：   一般图片显示不出来很大的原因是路径不对。于是我去查看了图片路径，确实找不到相应的图片。然">
+    <meta name="description" content="2023-09-04（一）复习内容：水平垂直居中、css中的长度单位、css中隐藏元素、深拷贝,浅拷贝和赋值、手写深拷贝、轮播图的实现思路、localstorage和sessionstorage、session和cookie、 2023-09-05（二）复习内容：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="📣 处理hexo博客中图片不显示问题">
-<meta property="og:url" content="https://luoynothing.github.io/2023/08/31/%F0%9F%93%A3-%E5%A4%84%E7%90%86hexo%E5%8D%9A%E5%AE%A2%E4%B8%AD%E5%9B%BE%E7%89%87%E4%B8%8D%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:title" content="📣 每日复习内容">
+<meta property="og:url" content="https://luoynothing.github.io/2023/09/04/%F0%9F%93%A3-%E6%AF%8F%E6%97%A5%E5%A4%8D%E4%B9%A0%E5%86%85%E5%AE%B9/index.html">
 <meta property="og:site_name" content="归故里">
-<meta property="og:description" content="在解决这个问题的过程中，我经历了三个阶段，很磨人最终还是回到了起点，发现最初的方法最好，如果赶时间，可以直接看第三个阶段。 🌸第一阶段：将图片保存在本地搭建好个人博客网站之后，写了两篇markdown文章（这时候我图片用的是网络地址），然后按照hexo三连上传了文章，最后在浏览器打开发现图像不显示：   一般图片显示不出来很大的原因是路径不对。于是我去查看了图片路径，确实找不到相应的图片。然">
+<meta property="og:description" content="2023-09-04（一）复习内容：水平垂直居中、css中的长度单位、css中隐藏元素、深拷贝,浅拷贝和赋值、手写深拷贝、轮播图的实现思路、localstorage和sessionstorage、session和cookie、 2023-09-05（二）复习内容：">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/68a0dd8fb049474f93f6d088d8dc2471~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=984&h=235&s=32490&e=png&b=fbfbfb">
-<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/66e0f2f20d7f4791a68b3973bf2f2734~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=758&h=225&s=31200&e=png&b=ffffff">
-<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/993af5c7afec466eaec981af9ac662ed~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1613&h=657&s=64676&e=png&b=fafafa">
-<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cc88f5524f094d118bedc8456e650126~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=918&h=103&s=12423&e=png&b=ffffff">
-<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/059d60bdaded4a0fa0f1ac61286f187e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=722&h=242&s=25251&e=png&b=000000">
-<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b0f3200872db4755a847a50c37e6327a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=758&h=291&s=28703&e=png&b=f9f9f9">
-<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f4cccaa212ee4ca0ac5b2cd4f85c41d7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=809&h=170&s=55087&e=png&b=f5f5f5">
-<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/43fc18d732d14116a6f8fedf7de8de30~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1331&h=174&s=61361&e=png&b=fffefe">
-<meta property="article:published_time" content="2023-08-31T09:37:33.000Z">
-<meta property="article:modified_time" content="2023-09-04T09:51:25.298Z">
+<meta property="article:published_time" content="2023-09-04T09:50:28.000Z">
+<meta property="article:modified_time" content="2023-09-04T11:15:06.163Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="个人博客">
+<meta property="article:tag" content="每日复习">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/68a0dd8fb049474f93f6d088d8dc2471~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=984&h=235&s=32490&e=png&b=fbfbfb">
   
   
   
-  <title>📣 处理hexo博客中图片不显示问题 - 归故里</title>
+  <title>📣 每日复习内容 - 归故里</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -233,7 +224,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">📣 处理hexo博客中图片不显示问题</span>
+            <span id="subtitle">📣 每日复习内容</span>
           
         </div>
 
@@ -244,8 +235,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-08-31 17:37" pubdate>
-          2023-08-31 17:37
+        <time datetime="2023-09-04 17:50" pubdate>
+          2023-09-04 17:50
         </time>
       </span>
     
@@ -256,7 +247,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.5k words
+          131 words
         
       </span>
     
@@ -267,7 +258,7 @@
         
         
         
-          13 mins
+          2 mins
         
       </span>
     
@@ -304,12 +295,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">📣 处理hexo博客中图片不显示问题</h1>
+            <h1 id="seo-header">📣 每日复习内容</h1>
             
               <p class="note note-info">
                 
                   
-                    Last updated on 2023-09-04 17:51
+                    Last updated on 2023-09-04 19:15
                   
                 
               </p>
@@ -319,52 +310,8 @@
                 
                 <meta name="referrer" content="no-referrer"/>
 
-<p>在解决这个问题的过程中，我经历了三个阶段，很磨人最终还是回到了起点，发现最初的方法最好，如果赶时间，可以直接看第三个阶段。</p>
-<h1 id="🌸第一阶段：将图片保存在本地"><a href="#🌸第一阶段：将图片保存在本地" class="headerlink" title="🌸第一阶段：将图片保存在本地"></a>🌸第一阶段：将图片保存在本地</h1><p>搭建好个人博客网站之后，写了两篇markdown文章（这时候我图片用的是网络地址），然后按照hexo三连上传了文章，最后在浏览器打开发现图像不显示：</p>
-<p align=center><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/68a0dd8fb049474f93f6d088d8dc2471~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=984&h=235&s=32490&e=png&b=fbfbfb" srcset="/img/loading.gif" lazyload width="60%" /></p>
-
-<p>一般图片显示不出来很大的原因是路径不对。于是我去查看了图片路径，确实找不到相应的图片。然后我参考<a target="_blank" rel="noopener" href="http://etrd.org/2017/01/23/hexo%E4%B8%AD%E5%AE%8C%E7%BE%8E%E6%8F%92%E5%85%A5%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87/">相关资料</a>了解到<code>hexo g</code>指令是将md文件生成html页面，然后每篇博文生成的html页面最后都是放在用年月日做文件夹的下面，例如：<code>E:\myblog\public\2023\08\31\test</code>。</p>
-<p>下面是我参考<a target="_blank" rel="noopener" href="https://leay.net/2019/12/25/hexo/">养恐龙</a>、<a target="_blank" rel="noopener" href="http://etrd.org/2017/01/23/hexo%E4%B8%AD%E5%AE%8C%E7%BE%8E%E6%8F%92%E5%85%A5%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87/">ETRD</a>、<a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_43401436/article/details/107191688">金牛大王</a>三位的回答，最终解决了我的问题。</p>
-<p><strong>第一步</strong>：确保你的Hexo的配置文件_config.yml里面有这个选项配置，并将其置为true</p>
-<pre><code class="hljs">post_asset_folder: true
-</code></pre>
-<p>这个功能实际上是Hexo官方文档中提到的资源文件夹功能，它的作用在于当你使用<code>hexo n &quot;文章名&quot;</code>生成一篇新文章时，会在<code>\source\_posts</code>目录下生成一个 文章名.md 文件外，附带生成一个与 文章名 同名的文件夹，可以用它来存放这篇文章的所有资源，比如图片，附件等。</p>
-<p align=center><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/66e0f2f20d7f4791a68b3973bf2f2734~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=758&h=225&s=31200&e=png&b=ffffff" srcset="/img/loading.gif" lazyload  width=" 60%"/></p>
-
-<p>【注】你也可以自己在 _posts 文件夹下自动生成md文件和相同名字的文件夹（用于存放图片）</p>
-<p><strong>第二步</strong>：typora中的图像保存位置设置</p>
-<p>点开文件——&gt;偏好设置，设置如下：</p>
-<p align=center><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/993af5c7afec466eaec981af9ac662ed~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1613&h=657&s=64676&e=png&b=fafafa" srcset="/img/loading.gif" lazyload width="60%"/></p>
-
-<p>修改好后，图片引用路径就在和博文同名的文件夹（新建博文名为test）的图片，如图所示：</p>
-<p align=center><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cc88f5524f094d118bedc8456e650126~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=918&h=103&s=12423&e=png&b=ffffff" srcset="/img/loading.gif" lazyload width="60%"/></p>
-
-<p><strong>第三步</strong>：安装插件</p>
-<p>在根目录下打开git bash，然后运行以下命令，如果有安装淘宝镜像，第一个改为cnpm即可。</p>
-<pre><code class="hljs">npm install https://github.com/xcodebuild/hexo-asset-image.git
-</code></pre>
-<p>运行结果如下图所示，图为安装成功：</p>
-<p align=center><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/059d60bdaded4a0fa0f1ac61286f187e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=722&h=242&s=25251&e=png&b=000000" srcset="/img/loading.gif" lazyload width="70%"/></p>
-
-<p>该插件的作用：将图片等静态资源的引用路径转化为绝对路径。</p>
-<p>【注】我最开始不是用的上面命令安装的，用的是<code>npm install hexo-asset-image -- save</code>，该命令安装的是插件 hexo-asset-image 1.0 ，这个版本有点问题，安装后图片不能正常显示，查看图片路径被渲染成了 <code>/.xx/abc.png</code> 的格式（xx 是域名后缀）。最后采用上面的命令才成功。</p>
-<p>如何卸载该插件？路径：<code>\blog\node_modules\hexo-asset-image</code>，直接删除文件夹，我试过没问题。</p>
-<h1 id="🌸-第二阶段：将图片保存到图床"><a href="#🌸-第二阶段：将图片保存到图床" class="headerlink" title="🌸 第二阶段：将图片保存到图床"></a>🌸 第二阶段：将图片保存到图床</h1><p>网上查了一些有关md文件中图片的保存位置，发现除了在本地保存外，还可以采用图床进行保存，可以尝试一下<a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/PicGo">PicGo</a> 这个图床上传工具，也方便md文件在其他站的上传。</p>
-<p>参考资料：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_61529967/article/details/132273065">前端小雪</a>、<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43447266/article/details/132490718">刘昕hrf</a>、<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45525272/article/details/125387761">杨 戬</a></p>
-<p>我根据上面三个参考回答实现了将图片保存到gitee图床中。</p>
-<p>我的图床：gitee平台</p>
-<h1 id="🌸-第三阶段：图片采用网络地址"><a href="#🌸-第三阶段：图片采用网络地址" class="headerlink" title="🌸 第三阶段：图片采用网络地址"></a>🌸 第三阶段：图片采用网络地址</h1><p>参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/mqdxiaoxiao/article/details/96770756">野猿新一</a>的回答，图片路径还是引用网络地址，想要在hexo博客中查看到网络地址的图片，直接在文章Front-matter下加一句：<code>&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;/&gt;</code>即可，如下图所示：</p>
-<p align=center><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b0f3200872db4755a847a50c37e6327a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=758&h=291&s=28703&e=png&b=f9f9f9" srcset="/img/loading.gif" lazyload width="70%"/></p>
-
-<p>最终发现就是加了这一句就可以显示网络地址图片了，我哭死┭┮﹏┭┮。也不需要插件了，也不需要找个地方保存图片！</p>
-<p>还有一个小问题就是，hexo博客网络图片下方可能会出现image.png，如果所示：</p>
-<p align=center><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f4cccaa212ee4ca0ac5b2cd4f85c41d7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=809&h=170&s=55087&e=png&b=f5f5f5" srcset="/img/loading.gif" lazyload width="60%" /></p>
-
-<p>解决办法就是把alt这一块（下图圈的地方）去掉即可：</p>
-<p align=center><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/43fc18d732d14116a6f8fedf7de8de30~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1331&h=174&s=61361&e=png&b=fffefe" srcset="/img/loading.gif" lazyload width="60%" /></p>
-
-
-<p>本篇结束！</p>
+<h2 id="2023-09-04（一）"><a href="#2023-09-04（一）" class="headerlink" title="2023-09-04（一）"></a>2023-09-04（一）</h2><p>复习内容：水平垂直居中、css中的长度单位、css中隐藏元素、深拷贝,浅拷贝和赋值、手写深拷贝、轮播图的实现思路、localstorage和sessionstorage、session和cookie、</p>
+<h1 id="2023-09-05（二）"><a href="#2023-09-05（二）" class="headerlink" title="2023-09-05（二）"></a>2023-09-05（二）</h1><p>复习内容：</p>
 
                 
               </div>
@@ -383,7 +330,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="category-chain-item">个人博客</a>
+  <a href="/categories/%E6%AF%8F%E6%97%A5%E5%A4%8D%E4%B9%A0/" class="category-chain-item">每日复习</a>
   
   
 
@@ -398,7 +345,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="print-no-link">#个人博客</a>
+        <a href="/tags/%E6%AF%8F%E6%97%A5%E5%A4%8D%E4%B9%A0/" class="print-no-link">#每日复习</a>
       
     </div>
   
@@ -410,8 +357,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>📣 处理hexo博客中图片不显示问题</div>
-      <div>https://luoynothing.github.io/2023/08/31/📣-处理hexo博客中图片不显示问题/</div>
+      <div>📣 每日复习内容</div>
+      <div>https://luoynothing.github.io/2023/09/04/📣-每日复习内容/</div>
     </div>
     <div class="license-meta">
       
@@ -423,13 +370,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>2023-08-31 17:37</div>
+          <div>2023-09-04 17:50</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>Updated on</div>
-          <div>2023-09-04 17:51</div>
+          <div>2023-09-04 19:15</div>
         </div>
       
       
@@ -460,18 +407,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/08/31/%F0%9F%93%A3-git%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%EF%BC%88%E4%B8%8B%EF%BC%89%EF%BC%8C%E6%AC%A2%E8%BF%8E%E9%A3%9F%E7%94%A8/" title="📣 git基本操作（下），欢迎食用~">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">📣 git基本操作（下），欢迎食用~</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/08/31/%F0%9F%93%A3-git%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%EF%BC%88%E4%B8%8A%EF%BC%89%EF%BC%8C%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93%E6%B8%85%E5%8D%95%E5%9C%A8%E6%9C%80%E5%90%8E/" title="📣 git基本操作（上），命令总结清单在最后">
-                        <span class="hidden-mobile">📣 git基本操作（上），命令总结清单在最后</span>
+                      <a href="/2023/09/03/%F0%9F%93%A3-%E9%9D%A2%E8%AF%95%E5%85%AB%E8%82%A1%E6%96%87%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%E4%B8%AD%EF%BC%89/" title="📣-面试八股文-html-css-js（持续更新中）">
+                        <span class="hidden-mobile">📣-面试八股文-html-css-js（持续更新中）</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
