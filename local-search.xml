@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>📣 攻击实验</title>
+    <link href="/2023/09/04/%F0%9F%93%A3-%E6%94%BB%E5%87%BB%E5%AE%9E%E9%AA%8C/"/>
+    <url>/2023/09/04/%F0%9F%93%A3-%E6%94%BB%E5%87%BB%E5%AE%9E%E9%AA%8C/</url>
+    
+    <content type="html"><![CDATA[<h1 id="1-pattern后门攻击"><a href="#1-pattern后门攻击" class="headerlink" title="1.pattern后门攻击"></a>1.pattern后门攻击</h1><h2 id="1-单次攻击"><a href="#1-单次攻击" class="headerlink" title="1.单次攻击"></a>1.单次攻击</h2><h2 id="2-多次攻击"><a href="#2-多次攻击" class="headerlink" title="2.多次攻击"></a>2.多次攻击</h2><h3 id="遇到的问题："><a href="#遇到的问题：" class="headerlink" title="遇到的问题："></a>遇到的问题：</h3><p>1.联邦学习的更新范数差别太大了，以至于损失值为Nan，在fl_task的get_update_norm函数中打印的范数。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>论文实验</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>攻击实验</tag>
+      
+      <tag>持续更新中</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>📣 每日复习内容</title>
     <link href="/2023/09/04/%F0%9F%93%A3-%E6%AF%8F%E6%97%A5%E5%A4%8D%E4%B9%A0%E5%86%85%E5%AE%B9%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%E4%B8%AD%EF%BC%89/"/>
     <url>/2023/09/04/%F0%9F%93%A3-%E6%AF%8F%E6%97%A5%E5%A4%8D%E4%B9%A0%E5%86%85%E5%AE%B9%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%E4%B8%AD%EF%BC%89/</url>
@@ -19,6 +46,8 @@
     
     
     <tags>
+      
+      <tag>持续更新中</tag>
       
       <tag>每日复习</tag>
       
@@ -45,32 +74,9 @@
     
     <tags>
       
+      <tag>持续更新中</tag>
+      
       <tag>backdoors101</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>📣 攻击实验</title>
-    <link href="/2023/09/04/%F0%9F%93%A3-%E6%94%BB%E5%87%BB%E5%AE%9E%E9%AA%8C/"/>
-    <url>/2023/09/04/%F0%9F%93%A3-%E6%94%BB%E5%87%BB%E5%AE%9E%E9%AA%8C/</url>
-    
-    <content type="html"><![CDATA[<h1 id="1-pattern后门攻击"><a href="#1-pattern后门攻击" class="headerlink" title="1.pattern后门攻击"></a>1.pattern后门攻击</h1><h2 id="1-单次攻击"><a href="#1-单次攻击" class="headerlink" title="1.单次攻击"></a>1.单次攻击</h2><h2 id="2-多次攻击"><a href="#2-多次攻击" class="headerlink" title="2.多次攻击"></a>2.多次攻击</h2><h3 id="遇到的问题："><a href="#遇到的问题：" class="headerlink" title="遇到的问题："></a>遇到的问题：</h3><p>1.联邦学习的更新范数差别太大了，以至于损失值为Nan，在fl_task的get_update_norm函数中打印的范数。</p>]]></content>
-    
-    
-    <categories>
-      
-      <category>论文实验</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>攻击实验</tag>
       
     </tags>
     
@@ -95,9 +101,9 @@
     
     <tags>
       
-      <tag>html~css~js</tag>
-      
       <tag>持续更新中</tag>
+      
+      <tag>html~css~js</tag>
       
     </tags>
     
