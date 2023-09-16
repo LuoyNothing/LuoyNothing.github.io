@@ -1,0 +1,774 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/tiger_1.png">
+  <link rel="icon" href="/img/tiger_1.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="本篇是学习(廖雪峰Git学习)所写的学习总结笔记，方便自己后续回顾复习。 📚 远程仓库在上篇中学到的git功能，其实在集中式版本管理系统中也能实现。Git是分布式版本控制系统，同一个Git仓库，可以分布到不同的机器上。下面介绍一下git杀手级功能之一：远程仓库。 首先需要先注册github账号，github是提供Git仓库托管服务的，所以只要注册一个GitHub账号，就可以免费获得Git远程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="📣 git基本操作（下），欢迎食用~">
+<meta property="og:url" content="https://luoynothing.github.io/2023/08/31/%F0%9F%93%A3-git%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%EF%BC%88%E4%B8%8B%EF%BC%89%EF%BC%8C%E6%AC%A2%E8%BF%8E%E9%A3%9F%E7%94%A8/index.html">
+<meta property="og:site_name" content="归故里">
+<meta property="og:description" content="本篇是学习(廖雪峰Git学习)所写的学习总结笔记，方便自己后续回顾复习。 📚 远程仓库在上篇中学到的git功能，其实在集中式版本管理系统中也能实现。Git是分布式版本控制系统，同一个Git仓库，可以分布到不同的机器上。下面介绍一下git杀手级功能之一：远程仓库。 首先需要先注册github账号，github是提供Git仓库托管服务的，所以只要注册一个GitHub账号，就可以免费获得Git远程">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a216ec3ad4594c3fba913f6996d8c3fa~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=722&h=79&s=11141&e=png&b=000000">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b313b7b908a848fc8a0910284548378c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=898&h=162&s=24628&e=png&b=f5f8fa">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/01449c510d5d48e9bc10c9754f7fdb36~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1098&h=534&s=27587&e=png&b=ffffff">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e01ac7674c024d04950a2243a3325493~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1098&h=698&s=32261&e=png&b=ffffff">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4ae82b830d984b0faf27135813427461~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1468&h=670&s=40357&e=png&b=ffffff">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e57e9c6356bf4c0fa36d8541f4d8f344~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1468&h=658&s=40546&e=png&b=ffffff">
+<meta property="article:published_time" content="2023-08-31T15:19:51.000Z">
+<meta property="article:modified_time" content="2023-09-16T02:01:01.802Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="git">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a216ec3ad4594c3fba913f6996d8c3fa~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=722&h=79&s=11141&e=png&b=000000">
+  
+  
+  
+  <title>📣 git基本操作（下），欢迎食用~ - 归故里</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"luoynothing.github.io","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":""},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+    <!-- Google tag (gtag.js) -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=", function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', '');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>归故里</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>主页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">📣 git基本操作（下），欢迎食用~</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-08-31 23:19" pubdate>
+          2023-08-31 23:19
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.7k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          31 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">📣 git基本操作（下），欢迎食用~</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    Last updated on 2023-09-16 10:01
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <meta name="referrer" content="no-referrer"/>
+
+<p>本篇是学习(<a href="https://link.juejin.cn/?target=https://www.liaoxuefeng.com/wiki/896043488029600/898732864121440" title="https://www.liaoxuefeng.com/wiki/896043488029600/898732864121440">廖雪峰Git学习</a>)所写的学习总结笔记，方便自己后续回顾复习。</p>
+<h1 id="📚-远程仓库"><a href="#📚-远程仓库" class="headerlink" title="📚 远程仓库"></a>📚 远程仓库</h1><p>在上篇中学到的git功能，其实在集中式版本管理系统中也能实现。Git是分布式版本控制系统，同一个Git仓库，可以分布到不同的机器上。下面介绍一下git杀手级功能之一：远程仓库。</p>
+<p>首先需要先注册github账号，github是提供Git仓库托管服务的，所以只要注册一个GitHub账号，就可以免费获得Git远程仓库。由于你的本地Git仓库和GitHub仓库之间的传输是通过SSH加密的，所以需要一点设置：</p>
+<p><strong>第1步：创建SSH Key。</strong></p>
+<p>在用户主目录下（我的电脑C:\Users\Administrator），看看有没有.ssh目录，如果有，再看看这个目录下有没有<code>id_rsa</code>和<code>id_rsa.pub</code>这两个文件，如果已经有了，可直接跳到下一步。如果没有，打开Shell（Windows下打开Git Bash），创建SSH Key：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs 复制代码">ssh-keygen -t rsa -C &quot;填写你的邮箱&quot;<br></code></pre></td></tr></table></figure>
+<p>你需要把邮件地址换成你自己的邮件地址，然后一路回车，使用默认值即可，由于这个Key也不是用于军事目的，所以也无需设置密码。</p>
+<p align=center><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a216ec3ad4594c3fba913f6996d8c3fa~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=722&h=79&s=11141&e=png&b=000000" srcset="/img/loading.gif" lazyload width="70%" /></p>
+
+<p>可以在用户主目录里找到<code>.ssh</code>目录，里面有<code>id_rsa</code>和<code>id_rsa.pub</code>两个文件，这两个就是SSH Key的秘钥对，<code>id_rsa</code>是私钥，不能泄露出去，<code>id_rsa.pub</code>是公钥，可以放心地告诉任何人。</p>
+<p><strong>第2步：登陆GitHub，增加SSH Keys</strong></p>
+<p>步骤为：①setting–&gt; ②SSH and GPG keys –&gt; ③new SSH key</p>
+<p>填上任意Title，在Key文本框里粘贴<code>id_rsa.pub</code>文件（公钥）的内容即可</p>
+<blockquote>
+<p>为什么GitHub需要SSH Key呢？</p>
+<p>因为GitHub需要识别出你推送的提交确实是你推送的，而不是别人冒充的，而Git支持SSH协议，所以，GitHub只要知道了你的公钥，就可以确认只有你自己才能推送。</p>
+</blockquote>
+<p>当然，GitHub允许你添加多个Key。假定你有若干电脑，你一会儿在公司提交，一会儿在家里提交，只要把每台电脑的Key都添加到GitHub，就可以在每台电脑上往GitHub推送了。</p>
+<h2 id="🌸-添加远程仓库"><a href="#🌸-添加远程仓库" class="headerlink" title="🌸 添加远程仓库"></a>🌸 添加远程仓库</h2><p><strong>本地仓库–&gt;远程仓库</strong></p>
+<p>现在你在本地有一个git仓库，然后你想在github新建一个git远程仓库并让两个仓库进行同步，这样github上的仓库既可以用于备份，也可以让其他人通过该仓库进行协作。</p>
+<p><strong>1.在github上新建仓库，名字可以和本地仓库不同。</strong></p>
+<p>新建仓库后可以根据GitHub给的提示来进行操作，提示如下：</p>
+<p align=center><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b313b7b908a848fc8a0910284548378c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=898&h=162&s=24628&e=png&b=f5f8fa" srcset="/img/loading.gif" lazyload  width="70%"/></p>
+
+<p>在本地仓库git bash中运行下列代码（根据自己的远程仓库提示来操作）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs 复制代码">git remote add origin git@github.com:LuoyNothing/mygit.git<br></code></pre></td></tr></table></figure>
+<p>添加后，远程库的名字就是<code>origin</code>，这里的<strong>origin为本地客户端认为的远程仓库的名字</strong>，也可以改成别的，但是<code>origin</code>这个名字一看就知道是远程库。</p>
+<blockquote>
+<p>在多人协作的时候，每个人都有自己的git本地客户端和本地仓库，每个人都可以给同一个远程仓库在本地指定不同的名字。</p>
+<p>只不过，origin是git客户端默认的远程仓库的名字，如果我们在关联时将远程仓库的名字指定为origin，在push的时候可以不指定远程仓库的名字，默认push到origin关联的远程仓库。如果修改了名字，在push的时候必须写上指定的远程仓库的名字。</p>
+</blockquote>
+<p><strong>2.把本地库的所有内容推送到远程库上</strong></p>
+<p>在本地仓库git bash中接着运行：</p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs maxima">git <span class="hljs-built_in">push</span> -u &lt;远程分支&gt; &lt;本地分支&gt;<br>git <span class="hljs-built_in">push</span> -u <span class="hljs-built_in">origin</span> master<br></code></pre></td></tr></table></figure>
+<p>把本地库的内容推送到远程，用<code>git push</code>命令，实际上是把当前分支<code>master</code>推送到远程。</p>
+<p>由于远程库是空的，我们第一次推送<code>master</code>分支时，加上了<code>-u</code>参数，Git不但会把本地的<code>master</code>分支内容推送的远程新的<code>master</code>分支，还会把本地的<code>master</code>分支和远程的<code>master</code>分支关联起来，在以后的推送或者拉取时就可以简化命令。</p>
+<p>推送步骤完成。<br>以后在本地仓库进行修改后要推送到远程仓库，直接执行<code>git push origin master</code></p>
+<p>把本地<code>master</code>分支的最新修改推送至GitHub，现在，你就拥有了真正的分布式版本库！</p>
+<h2 id="🌸-删除远程仓库"><a href="#🌸-删除远程仓库" class="headerlink" title="🌸 删除远程仓库"></a>🌸 删除远程仓库</h2><p><strong>1.解绑远程仓库和本地仓库连接</strong></p>
+<p>可以先查看一下远程库信息：<code>git remote -v</code>。然后根据名字删除，比如删除origin：<code>git remote rm origin</code></p>
+<p><strong>2.在github上真正删除远程仓库</strong></p>
+<h2 id="🌸-从远程仓库克隆"><a href="#🌸-从远程仓库克隆" class="headerlink" title="🌸 从远程仓库克隆"></a>🌸 从远程仓库克隆</h2><p>使用<code>git clone 地址</code>就可以克隆完成。地址中Git支持多种协议，包括<code>https</code>，但<code>ssh</code>协议速度最快。</p>
+<h1 id="📚-分支管理"><a href="#📚-分支管理" class="headerlink" title="📚 分支管理"></a>📚 分支管理</h1><h2 id="🌸-分支的理解"><a href="#🌸-分支的理解" class="headerlink" title="🌸 分支的理解"></a>🌸 分支的理解</h2><p>在开发一个项目的时候，团队负责人会给每个团队成员划分不同的任务。如果每个人都在主分支上进行项目开发，这样会影响其他人的工作。因此为了不影响其他人的工作，可以每个人新开一个分支来完成自己的任务，最后测试没问题再合并到主分支上，最后所有人的任务分支都合并到主分支上则可完成项目协作开发。当然实际开发中，可能有些许不同，比如按照任务来新建分支，然后安排某人来开发这个分支，或者几个人负责一个分支，然后根据提交的情况来查看每个人的工作量。</p>
+<p>每个人都有本地仓库和远程仓库，一般在项目开发中，自己本地开发完之后提交到远程仓库中属于自己的分支，避免数据遗失。</p>
+<p>每一次commit都会有提交描述和提交时间，git会将这些commit根据提交时间来串成一个时间线。截止目前只有一个时间线，在git里叫主分支，名字为master。</p>
+<p><code>HEAD</code>严格来说不是指向提交，而是指向<code>master</code>，<code>master</code>才是指向提交的，所以，<code>HEAD</code>指向的就是当前分支。一开始的时候，<code>master</code>分支是一条线，Git用<code>master</code>指向最新的提交，再用<code>HEAD</code>指向<code>master</code>，就能确定当前分支，以及当前分支的提交点：</p>
+<p align=center><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/01449c510d5d48e9bc10c9754f7fdb36~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1098&h=534&s=27587&e=png&b=ffffff" srcset="/img/loading.gif" lazyload width="50%" /></p>
+
+<p>每一次提交，master分支都会向前走一步，随着提交次数的增多，master分支就越来越长。</p>
+<h2 id="🌸-创建与合并分支"><a href="#🌸-创建与合并分支" class="headerlink" title="🌸 创建与合并分支"></a>🌸 创建与合并分支</h2><p>创建一个新分支，名字为：dev。</p>
+<figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs q"><span class="hljs-comment">// 创建分支dev</span><br>git branch <span class="hljs-built_in">dev</span><br><span class="hljs-comment">// 切换分支dev</span><br>方式一：git checkout <span class="hljs-built_in">dev</span><br>方式二：git switch <span class="hljs-built_in">dev</span><br><span class="hljs-comment">// 创建并切换分支</span><br>方式一：git checkout -b <span class="hljs-built_in">dev</span><br>方式二(更语义，和前面撤销工作区的更新不产生冲突)：git switch -c <span class="hljs-built_in">dev</span><br><span class="hljs-comment">// 查看当前所有分支</span><br>git branch<br></code></pre></td></tr></table></figure>
+
+<p>当创建了分支dev之后，Git新建了一个指针叫<code>dev</code>，指向<code>master</code>相同的提交，再把<code>HEAD</code>指向<code>dev</code>，就表示当前分支在<code>dev</code>上：</p>
+<p align=center><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e01ac7674c024d04950a2243a3325493~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1098&h=698&s=32261&e=png&b=ffffff" srcset="/img/loading.gif" lazyload width="50%"/></p>
+
+<p>从现在开始，对工作区的修改和提交就是针对<code>dev</code>分支了，比如新提交一次(add+commit)后，<code>dev</code>指针往前移动一步，而<code>master</code>指针不变：</p>
+<p align=center><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4ae82b830d984b0faf27135813427461~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1468&h=670&s=40357&e=png&b=ffffff" srcset="/img/loading.gif" lazyload alt="image.png" width="50%" /></p>
+
+<p>假如我们在<code>dev</code>上的工作完成了，就可以把<code>dev</code>合并到<code>master</code>上。Git怎么合并呢？最简单的方法，就是直接把<code>master</code>指向<code>dev</code>的当前提交，就完成了合并：</p>
+<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs autohotkey">// `git merge`命令用于合并指定分支到当前分支。<br>git merge dev<br></code></pre></td></tr></table></figure>
+<p>这次合并是“快进模式”，也就是直接把<code>master</code>指向<code>dev</code>的当前提交，所以合并速度非常快。</p>
+<p align=center><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e57e9c6356bf4c0fa36d8541f4d8f344~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1468&h=658&s=40546&e=png&b=ffffff" srcset="/img/loading.gif" lazyload  width="50%"/></p>
+
+<p>合并完分支后，甚至可以删除<code>dev</code>分支。删除<code>dev</code>分支就是把<code>dev</code>指针给删掉，删掉后，我们就剩下了一条<code>master</code>分支：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">//</span> 删除分支dev<br>git branch -d dev<br></code></pre></td></tr></table></figure>
+<p>因为创建、合并和删除分支非常快，所以Git鼓励你使用分支完成某个任务，合并后再删掉分支，这和直接在<code>master</code>分支上工作效果是一样的，但过程更安全。</p>
+<h2 id="🌸-解决冲突"><a href="#🌸-解决冲突" class="headerlink" title="🌸 解决冲突"></a>🌸 解决冲突</h2><h2 id="🌸-分支管理策略"><a href="#🌸-分支管理策略" class="headerlink" title="🌸 分支管理策略"></a>🌸 分支管理策略</h2><h1 id="📚-常见问题解决方案"><a href="#📚-常见问题解决方案" class="headerlink" title="📚 常见问题解决方案"></a>📚 常见问题解决方案</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs git">//取消http代理<br>git config --global --unset http.proxy<br>//取消https代理 <br>git config --global --unset https.proxy<br><br>git config --global http.sslVerify &quot;false&quot;<br></code></pre></td></tr></table></figure>
+
+
+
+
+<h1 id="📚-命令汇总"><a href="#📚-命令汇总" class="headerlink" title="📚 命令汇总"></a>📚 命令汇总</h1><ul>
+<li>远程仓库<ul>
+<li>连接本地仓库和远程仓库：<code>git remote add origin git@github.com:LuoyNothing/mygit.git</code></li>
+<li>第一次推送到远程仓库：<code>git push -u origin master</code></li>
+<li>后续更新推送：<code>git push origin master</code></li>
+<li>查看远程库信息：<code>git remote -v</code></li>
+<li>删除本地仓库和远程仓库的连接：<code>git remote rm origin</code></li>
+<li>从远程仓库克隆：<code>git clone 地址</code></li>
+</ul>
+</li>
+<li>分支<ul>
+<li>创建与合并分支<ul>
+<li>创建分支：<code>git branch &lt;name&gt;</code></li>
+<li>切换分支：<code>git switch &lt;name&gt;</code></li>
+<li>创建并切换分支：<code>git switch -c &lt;name&gt;</code></li>
+<li>合并分支：<code>git merge &lt;name&gt;</code></li>
+<li>删除分支：<code>git branch -d &lt;name&gt;</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>下篇在此结束，您花了5分钟又复习了一次相关知识，如果对你还有一点帮助的话，不妨给个小赞鼓励一下吧😊，感谢观看！</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%89%8D%E7%AB%AF/" class="category-chain-item">前端</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/git/" class="print-no-link">#git</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>📣 git基本操作（下），欢迎食用~</div>
+      <div>https://luoynothing.github.io/2023/08/31/📣-git基本操作（下），欢迎食用/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>2023-08-31 23:19</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Updated on</div>
+          <div>2023-09-16 10:01</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/09/03/%F0%9F%93%A3-%E9%9D%A2%E8%AF%95%E5%85%AB%E8%82%A1%E6%96%87%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%E4%B8%AD%EF%BC%89/" title="📣-面试八股文-html-css-js（持续更新中）">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">📣-面试八股文-html-css-js（持续更新中）</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/08/31/%F0%9F%93%A3-%E5%A4%84%E7%90%86hexo%E5%8D%9A%E5%AE%A2%E4%B8%AD%E5%9B%BE%E7%89%87%E4%B8%8D%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/" title="📣 处理hexo博客中图片不显示问题">
+                        <span class="hidden-mobile">📣 处理hexo博客中图片不显示问题</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+      
+<i class="iconfont icon-love"></i> 新知识+1 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>

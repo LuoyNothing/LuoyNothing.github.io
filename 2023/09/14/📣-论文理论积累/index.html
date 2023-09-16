@@ -16,23 +16,23 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="1.pattern后门攻击1.单次攻击2.多次攻击遇到的问题：1.联邦学习的更新范数差别太大了，以至于损失值为Nan，在fl_task的get_update_norm函数中打印的范数。">
+    <meta name="description" content="📚     # 📚 差分隐私  ## 🌸 这里给出cdp的推理过程  ​	首先给出中心化差分隐私（CDP）的**严格定义**  ​	$$\operatorname{Pr}[\mathcal{A}(D) \in S] \leqslant \operatorname{Pr}\left[\mathcal{A}\left(D^{\prime}\right) \in S\right] \times">
 <meta property="og:type" content="article">
-<meta property="og:title" content="📣 攻击实验">
-<meta property="og:url" content="https://luoynothing.github.io/2023/09/04/%F0%9F%93%A3-%E6%94%BB%E5%87%BB%E5%AE%9E%E9%AA%8C/index.html">
+<meta property="og:title" content="📣-论文理论积累">
+<meta property="og:url" content="https://luoynothing.github.io/2023/09/14/%F0%9F%93%A3-%E8%AE%BA%E6%96%87%E7%90%86%E8%AE%BA%E7%A7%AF%E7%B4%AF/index.html">
 <meta property="og:site_name" content="归故里">
-<meta property="og:description" content="1.pattern后门攻击1.单次攻击2.多次攻击遇到的问题：1.联邦学习的更新范数差别太大了，以至于损失值为Nan，在fl_task的get_update_norm函数中打印的范数。">
+<meta property="og:description" content="📚     # 📚 差分隐私  ## 🌸 这里给出cdp的推理过程  ​	首先给出中心化差分隐私（CDP）的**严格定义**  ​	$$\operatorname{Pr}[\mathcal{A}(D) \in S] \leqslant \operatorname{Pr}\left[\mathcal{A}\left(D^{\prime}\right) \in S\right] \times">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-09-04T09:50:28.000Z">
-<meta property="article:modified_time" content="2023-09-14T09:47:54.192Z">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ad919ed16ab34ca1b92d4d61cde7a2fb~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=372&h=264&s=14908&e=png&a=1&b=ffffff">
+<meta property="article:published_time" content="2023-09-14T13:06:05.000Z">
+<meta property="article:modified_time" content="2023-09-16T02:12:51.065Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="攻击实验">
-<meta property="article:tag" content="持续更新中">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ad919ed16ab34ca1b92d4d61cde7a2fb~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=372&h=264&s=14908&e=png&a=1&b=ffffff">
   
   
   
-  <title>📣 攻击实验 - 归故里</title>
+  <title>📣-论文理论积累 - 归故里</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -225,7 +225,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">📣 攻击实验</span>
+            <span id="subtitle">📣-论文理论积累</span>
           
         </div>
 
@@ -236,8 +236,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-09-04 17:50" pubdate>
-          2023-09-04 17:50
+        <time datetime="2023-09-14 21:06" pubdate>
+          2023-09-14 21:06
         </time>
       </span>
     
@@ -248,7 +248,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          92 words
+          4.4k words
         
       </span>
     
@@ -259,7 +259,7 @@
         
         
         
-          1 mins
+          37 mins
         
       </span>
     
@@ -296,12 +296,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">📣 攻击实验</h1>
+            <h1 id="seo-header">📣-论文理论积累</h1>
             
               <p class="note note-info">
                 
                   
-                    Last updated on 2023-09-14 17:47
+                    Last updated on 2023-09-16 10:12
                   
                 
               </p>
@@ -309,7 +309,78 @@
             
               <div class="markdown-body">
                 
-                <h1 id="1-pattern后门攻击"><a href="#1-pattern后门攻击" class="headerlink" title="1.pattern后门攻击"></a>1.pattern后门攻击</h1><h2 id="1-单次攻击"><a href="#1-单次攻击" class="headerlink" title="1.单次攻击"></a>1.单次攻击</h2><h2 id="2-多次攻击"><a href="#2-多次攻击" class="headerlink" title="2.多次攻击"></a>2.多次攻击</h2><h3 id="遇到的问题："><a href="#遇到的问题：" class="headerlink" title="遇到的问题："></a>遇到的问题：</h3><p>1.联邦学习的更新范数差别太大了，以至于损失值为Nan，在fl_task的get_update_norm函数中打印的范数。</p>
+                
+
+📚 
+
+
+
+# 📚 差分隐私
+
+## 🌸 这里给出cdp的推理过程
+
+​	首先给出中心化差分隐私（CDP）的**严格定义**
+
+​	$$\operatorname{Pr}[\mathcal{A}(D) \in S] \leqslant \operatorname{Pr}\left[\mathcal{A}\left(D^{\prime}\right) \in S\right] \times \mathrm{e}^{\epsilon}$$
+
+​	定义（**松弛DP**） $$(\epsilon, \delta)$$-差分隐私  对于只有一个记录不同的两个数据集$$D$$和$$D'$$，一个随机算法$$M$$，以及对于任意的输出$$S\subset\text{Range}(M)$$，我们称随机算法$$M$$提供$$(\epsilon, \delta)$$-差分隐私保护，当且仅当其满足：
+
+​	$$\operatorname{Pr}[\mathcal{M}(D) \in S] \leqslant \operatorname{Pr}\left[\mathcal{M}\left(D^{\prime}\right) \in S\right] \times \mathrm{e}^{\epsilon}+\delta$$
+
+​	其中，$$\epsilon$$表示隐私预算，$$\delta$$表示失败概率。当$$\delta=0$$时，便得到了性能更好的$$\epsilon$$-差分隐私。$$\epsilon$$用于控制算法$$M$$在邻近数据集上获得相同输出的概率比值。$$\epsilon$$越小，那么算法在邻近数据集上获得相同输出的概率就越大，用户就通过输出结果无法判断数据到底是来自哪个数据集，从而达到隐私保护的目的。特别的，当$$\epsilon=0$$时，算法$$M$$在邻近数据集上得到相同的输出的概率是一样的。反之，$$\epsilon$$越大，其隐私保护的程度就越低。
+
+
+
+**加拉普拉斯噪声的推导过程如下：**
+
+$$\operatorname{Pr}[\mathcal{A}(D) = t] \leqslant \operatorname{Pr}\left[\mathcal{A}\left(D^{\prime}\right) =t\right] \times \mathrm{e}^{\epsilon}$$
+
+这里的$A$是一个算法，我们希望通过$A$这个算法使得$\frac{\operatorname{Pr}[\mathcal{A}(D) = t]}{\operatorname{Pr}[\mathcal{A}(D^{\prime}) = t]}\le {e}^{\epsilon} $ 两个概率的比值小于等于${e}^{\epsilon}$，$$A$$是一个函数，我们想设计这个函数满足上面的条件，其中$$A(x) = F(x) + x$$，其中$$F(X)$$是原函数，我们通过在原函数上加一个噪声$$x$$（加一个分布）来设计这个$A$算法，根据所加噪声的量来使其达到上述条件。
+
+那么怎么加？加多少呢？
+
+我们先来看拉普拉斯噪声
+
+$\frac{\operatorname{Pr}[\mathcal{A}(D) = t]}{\operatorname{Pr}[\mathcal{A}(D^{\prime}) = t]} = \frac{\operatorname{Pr}[\mathcal F(D) + x = t]}{\operatorname{Pr}[\mathcal F(D^{\prime}) + x= t]} = \frac{\operatorname{Pr}[\mathcal x = t - \mathcal F(D)]}{\operatorname{Pr}[\mathcal x= t - \mathcal F(D^{\prime})]} $
+
+​	我们这里想用拉普拉斯加噪，也就是将$x$当做拉普拉斯分布，那么满足$\mathrm{e}^{\epsilon}$的条件下应该加多少噪声呢？，其中拉普拉斯分布的密度函数为$f(x \mid \mu, \beta )=\frac{1}{2 \beta} e^{-\frac{|x-\mu|}{\beta}}$，其中$\mu$是位置参数，$\beta$是尺度参数，这里令$\mu=0$，则$f(x \mid 0, \beta )=\frac{1}{2 \beta} e^{-\frac{|x|}{\beta}}$（也就是这里$\beta$应该怎么取值），将这个式子带进去可得：其中涉及三角不等式$\left | a \right | - \left | b \right | \le \left | a - b \right |$，即可得如下的计算过程。
+
+$\frac{\frac{1}{2 \beta} e^{-\frac{|t - \mathcal F(D)|}{\beta}}}{ \frac{1}{2 \beta} e^{-\frac{|t - \mathcal F(D^{\prime})|}{\beta}}} = e^{\frac{|t - \mathcal F(D^{\prime}))| - |t - \mathcal F(D)|}{\beta}}  \le e^{\frac{|\mathcal F(D) - \mathcal F(D^{\prime})|}{\beta}} $
+
+又因为敏感度的定义：$|\mathcal F(D) - \mathcal F(D^{\prime})| \le  \Delta f$
+
+所以上述式子继续化简为：$\le e^{\frac{\Delta f}{\beta } } $
+
+使用拉普拉斯噪声进行处理得到的概率比值$\le e^{\frac{\Delta f}{\beta } } $得满足定义条件，所以$\le e^{\frac{\Delta f}{\beta } } \le e^{\epsilon}$，即$\frac{\Delta f}{\beta } \le \epsilon$即可，最后$\beta$只要$\ge \frac{\Delta f}{\epsilon }$即可满足隐私保护条件。$\epsilon$ 我们称为隐私损失，隐私损失越小，分布相似度越高，隐私保护越高，$\beta$也就越大，图越平缓（如下图可见），所加噪声越多。
+
+<p align=center><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ad919ed16ab34ca1b92d4d61cde7a2fb~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=372&h=264&s=14908&e=png&a=1&b=ffffff" srcset="/img/loading.gif" lazyload alt="image.png"  width="40%"/></p>
+
+**下面开始推导加高斯噪声的过程：**
+
+松弛差分隐私定义：
+
+$$\operatorname{Pr}[\mathcal{A}(D) = t] \leqslant \operatorname{Pr}\left[\mathcal{A}\left(D^{\prime}\right) =t\right] \times \mathrm{e}^{\epsilon}+\delta$$
+
+上述表示违反严格差分隐私的概率为$$\delta$$，也可以这么写$\operatorname{Pr}\left[\frac{\operatorname{Pr}[\mathcal{A}(D) = t]}{\operatorname{Pr}[\mathcal{A}(D^{\prime}) = t]}\ge {e}^{\epsilon}\right] \le \delta $
+
+这里我们要加高斯分布，我们还是先来计算概率的比值：
+
+
+$\frac{\operatorname{Pr}[\mathcal{A}(D) = t]}{\operatorname{Pr}[\mathcal{A}(D^{\prime}) = t]} = \frac{\operatorname{Pr}[\mathcal F(D) + x = t]}{\operatorname{Pr}[\mathcal F(D^{\prime}) + x= t]} = \frac{\operatorname{Pr}[\mathcal x = t - \mathcal F(D)]}{\operatorname{Pr}[\mathcal x= t - \mathcal F(D^{\prime})]} $
+
+这里$x$就表示我们要加的高斯噪声，高斯密度函数为$f(x \mid \mu, \sigma )=\frac{1}{\sqrt{2 \pi} \sigma} e^{-\frac{(x-\mu)^{2}}{2 \sigma^{2}}}$，其中$\mu$称为均值，$\sigma^2$称为方差，$\sigma$表示标准差。这里均值先取0，即为$f(x \mid 0, \sigma )=\frac{1}{\sqrt{2 \pi} \sigma} e^{-\frac{x^{2}}{2 \sigma^{2}}}$。
+
+这里就不能像上面一样把密度函数带进去，因为$x^2$是消不掉的，所以这里，我们让$t - \mathcal F(D) = x$，然后$t - \mathcal F(D^{\prime})) = x + \Delta f$，这里的$\Delta f$是敏感度，先暂时考虑=的情况，然后带入进去看一下：
+
+$\frac{\frac{1}{\sqrt{2 \pi} \sigma} e^{-\frac{{(t - \mathcal F(D))}^{2}}{2 \sigma^{2}}}}{\frac{1}{\sqrt{2 \pi} \sigma} e^{-\frac{(t - \mathcal F(D^{\prime}))^{2}}{2 \sigma^{2}}}} = e^{\frac{(t - \mathcal F(D^{\prime}))^{2} - (t - \mathcal F(D))^{2}}{2 \sigma^{2}}} = e^{\frac{(x + \Delta f)^{2} - x^{2}}{2 \sigma^{2}}} = e^{\frac{2x \Delta f + {\Delta f}^2}{2 \sigma^{2}}}$
+
+最右边得到的式子还是一个高斯分布，也可以称为亚高斯分布。我们要想满足差分隐私的条件，就需要使得
+
+$\frac{2x \Delta f + {\Delta f}^2}{2 \sigma^{2}} \le \epsilon$，把$x$全部放到左边去，可以得到：$x \le \frac{\sigma ^2 \epsilon }{\Delta f} - \frac{\Delta f}{2} $，这个$x$本身是取任意值的，是不能让他小于某个值，所以不能满足严格差分隐私，这里呢我们让$1- \delta$的概率满足$\le \epsilon$即可，也就是让$\delta$的概率满足$\ge \epsilon$即可，即：
+
+$$\operatorname{Pr}[|x| \ge \frac{\sigma ^2 \epsilon }{\Delta f} - \frac{\Delta f}{2}] \leqslant \delta$$，也就是说这个x违反严格差分隐私的概率控制在$\delta$范围内，图像具有对称性，看一边的话则为：$$\operatorname{Pr}[x \ge \frac{\sigma ^2 \epsilon }{\Delta f} - \frac{\Delta f}{2}] \leqslant \frac {\delta}{2}$$
+
+
 
                 
               </div>
@@ -318,36 +389,6 @@
             <div>
               <div class="post-metas my-3">
   
-    <div class="post-meta mr-3 d-flex align-items-center">
-      <i class="iconfont icon-category"></i>
-      
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E8%AE%BA%E6%96%87%E5%AE%9E%E9%AA%8C/" class="category-chain-item">论文实验</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-    </div>
-  
-  
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/%E6%94%BB%E5%87%BB%E5%AE%9E%E9%AA%8C/" class="print-no-link">#攻击实验</a>
-      
-        <a href="/tags/%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%E4%B8%AD/" class="print-no-link">#持续更新中</a>
-      
-    </div>
   
 </div>
 
@@ -357,8 +398,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>📣 攻击实验</div>
-      <div>https://luoynothing.github.io/2023/09/04/📣-攻击实验/</div>
+      <div>📣-论文理论积累</div>
+      <div>https://luoynothing.github.io/2023/09/14/📣-论文理论积累/</div>
     </div>
     <div class="license-meta">
       
@@ -370,13 +411,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>2023-09-04 17:50</div>
+          <div>2023-09-14 21:06</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>Updated on</div>
-          <div>2023-09-14 17:47</div>
+          <div>2023-09-16 10:12</div>
         </div>
       
       
@@ -407,9 +448,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/09/05/%F0%9F%93%A3-%E6%B1%82%E8%81%8C%E7%9A%84%E6%B5%8B%E8%AF%84%E9%A2%98%E5%88%86%E6%9E%90/" title="📣 求职的测评题分析">
+                      <a href="/2023/09/15/%F0%9F%93%A3-%E9%98%B2%E5%BE%A1%E5%AE%9E%E9%AA%8C/" title="📣-防御实验">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">📣 求职的测评题分析</span>
+                        <span class="hidden-mobile">📣-防御实验</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -417,8 +458,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/09/04/%F0%9F%93%A3-%E5%88%86%E6%9E%90%E5%AE%9E%E9%AA%8C%E8%BF%87%E7%A8%8B/" title="📣 分析实验过程">
-                        <span class="hidden-mobile">📣 分析实验过程</span>
+                      <a href="/2023/09/14/%E4%BD%8E%E9%80%9A%E6%BB%A4%E6%B3%A2%E5%99%A8%E9%9C%80%E6%B1%82/" title="低通滤波器需求">
+                        <span class="hidden-mobile">低通滤波器需求</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

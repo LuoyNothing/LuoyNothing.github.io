@@ -28,7 +28,7 @@
 <meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/715c839f767d41dc98669788c9705772~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=634&h=277&s=82226&e=png&b=fdf9f8">
 <meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b5058d13e4a548a3b40e0ae074ffbb92~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=634&h=373&s=84518&e=png&b=fefdfd">
 <meta property="article:published_time" content="2023-09-03T08:44:25.000Z">
-<meta property="article:modified_time" content="2023-09-11T12:24:42.291Z">
+<meta property="article:modified_time" content="2023-09-16T01:54:28.544Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="持续更新中">
 <meta property="article:tag" content="html~css~js">
@@ -306,7 +306,7 @@
               <p class="note note-info">
                 
                   
-                    Last updated on 2023-09-11 20:24
+                    Last updated on 2023-09-16 09:54
                   
                 
               </p>
@@ -553,7 +553,7 @@ top:-90999px;
 
 
 
-<h1 id="📚-js"><a href="#📚-js" class="headerlink" title="📚 js"></a>📚 js</h1><h2 id="1-js取整的方法，parseInt第二个参数是什么-（√）"><a href="#1-js取整的方法，parseInt第二个参数是什么-（√）" class="headerlink" title="1.js取整的方法，parseInt第二个参数是什么?（√）"></a>1.js取整的方法，parseInt第二个参数是什么?（√）</h2><p>1、丢弃小数部分，保留整数部分：</p>
+<h1 id="📚-js和js进阶"><a href="#📚-js和js进阶" class="headerlink" title="📚 js和js进阶"></a>📚 js和js进阶</h1><h2 id="1-js取整的方法，parseInt第二个参数是什么-（√）"><a href="#1-js取整的方法，parseInt第二个参数是什么-（√）" class="headerlink" title="1.js取整的方法，parseInt第二个参数是什么?（√）"></a>1.js取整的方法，parseInt第二个参数是什么?（√）</h2><p>1、丢弃小数部分，保留整数部分：</p>
 <pre><code class="hljs">parseInt(d);
 Math.trunc(d); 
 </code></pre>
@@ -1087,14 +1087,11 @@ Math.trunc(d);
 <p><strong>优化和性能：</strong> 对于包含大量图像的轮播图，应考虑性能优化，如懒加载图像，压缩图像大小等。</p>
 <h2 id="8-闭包的原理，有哪些应用？（√）"><a href="#8-闭包的原理，有哪些应用？（√）" class="headerlink" title="8.闭包的原理，有哪些应用？（√）"></a>8.闭包的原理，有哪些应用？（√）</h2><p>要理解闭包，首先必须理解Javascript特殊的变量作用域。变量的作用域无非就是两种：全局变量和局部变量。</p>
 <ul>
-<li><p>闭包是指函数和它所引用的外部变量之间的关联关系。当一个函数内部引用了外部的变量时，即使这个函数执行完毕，那些外部变量仍然可以被访问。这是因为 JavaScript 中的函数不仅包含代码，还包含了执行上下文，其中包括了函数内部引用的外部变量。</p>
-</li>
-<li><p>当一个函数嵌套在另一个函数内部时，内部函数可以访问外部函数的变量。如果内部函数在外部函数执行完后仍然存在，并引用了外部函数的变量，那么就形成了一个闭包。这样，外部函数的变量不会被销毁，而是继续存在于内部函数的作用域中。</p>
-</li>
+<li>① 闭包是指函数和它所引用的外部变量之间的关联关系。② 当一个函数嵌套在另一个函数内部时，内部函数可以访问外部函数的变量。③ 如果内部函数在外部函数执行完后仍然存在，并引用了外部函数的变量，那么就形成了一个闭包。这样，外部函数的变量不会被销毁，而是继续存在于内部函数的作用域中。</li>
 </ul>
 <p><strong>闭包的应用</strong>：</p>
 <ol>
-<li><p><strong>封装和模块化</strong>：闭包可以用于创建私有变量和函数，使其不被外部访问，将相关的功能封装在一个函数内部，只暴露必要的接口给外部,从而实现封装和模块化的代码结构。</p>
+<li><p><strong>封装和模块化</strong>：闭包可以用于创建私有变量和函数，使其不被外部访问，将相关的功能封装在一个函数内部，只暴露必要的接口给外部，从而实现封装和模块化的代码结构。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">createCounter</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">let</span> count = <span class="hljs-number">0</span>;<br>  <span class="hljs-keyword">return</span> <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">return</span> ++count;<br>  &#125;;<br>&#125;<br><br><span class="hljs-keyword">const</span> counter = <span class="hljs-title function_">createCounter</span>();<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title function_">counter</span>()); <span class="hljs-comment">// 1</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title function_">counter</span>()); <span class="hljs-comment">// 2</span><br></code></pre></td></tr></table></figure></li>
 </ol>
 <p><strong>2,保存状态</strong>：闭包可以用于保存函数执行时的状态，例如计数器、事件处理等。</p>
@@ -1106,14 +1103,14 @@ Math.trunc(d);
 <p><strong>4.回调函数</strong>：在异步编程中，常常会使用闭包来处理回调函数，以保持上下文和访问相关的数据。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">fetchData</span>(<span class="hljs-params">url, callback</span>) &#123;<br>  <span class="hljs-comment">// 异步操作获取数据</span><br>  <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>    <span class="hljs-keyword">const</span> data = <span class="hljs-string">&quot;Some data from &quot;</span> + url;<br>    <span class="hljs-title function_">callback</span>(data);<br>  &#125;, <span class="hljs-number">1000</span>);<br>&#125;<br><br><span class="hljs-title function_">fetchData</span>(<span class="hljs-string">&quot;https://example.com&quot;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) &#123;<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(data);<br>&#125;);<br></code></pre></td></tr></table></figure>
 
-<p><strong>事件处理</strong>：DOM 事件处理函数常常使用闭包来访问事件发生时的上下文信息。</p>
+<p><strong>5.事件处理</strong>：DOM 事件处理函数常常使用闭包来访问事件发生时的上下文信息。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">addClickHandler</span>(<span class="hljs-params">element</span>) &#123;<br>  element.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&quot;click&quot;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;Clicked element: &quot;</span> + element.<span class="hljs-property">id</span>);<br>  &#125;);<br>&#125;<br><span class="hljs-keyword">const</span> button1 = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;button1&quot;</span>);<br><span class="hljs-keyword">const</span> button2 = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;button2&quot;</span>);<br><span class="hljs-title function_">addClickHandler</span>(button1);<br><span class="hljs-title function_">addClickHandler</span>(button2);<br></code></pre></td></tr></table></figure>
 
 <p><strong>定时器</strong>：在定时器中使用闭包可以保持定时器回调函数对特定数据的访问。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">startTimer</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">let</span> count = <span class="hljs-number">0</span>;<br>  <span class="hljs-keyword">const</span> intervalId = <span class="hljs-built_in">setInterval</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;<br>    count++;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;Count: &quot;</span> + count);<br>    <span class="hljs-keyword">if</span> (count &gt;= <span class="hljs-number">5</span>) &#123;<br>      <span class="hljs-built_in">clearInterval</span>(intervalId);<br>    &#125;<br>  &#125;, <span class="hljs-number">1000</span>);<br>&#125;<br><br><span class="hljs-title function_">startTimer</span>();<br></code></pre></td></tr></table></figure>
 
 <p>总之，闭包是JavaScript中强大而灵活的概念，它在许多方面都有应用，包括封装数据、模块化开发、事件处理、回调函数和定时器等。理解闭包的原理可以帮助你更好地利用它来解决各种编程问题。</p>
-<p>但要注意，过度使用闭包可能会导致内存泄漏，因此在使用闭包时需要小心管理内存。</p>
+<p>但要注意，过度使用闭包可能会导致<strong>内存泄漏</strong>，因此在使用闭包时需要小心管理内存。</p>
 <h2 id="9-手写promise"><a href="#9-手写promise" class="headerlink" title="9.手写promise"></a>9.手写promise</h2><h2 id="10-原型链的理解"><a href="#10-原型链的理解" class="headerlink" title="10.原型链的理解"></a>10.原型链的理解</h2><h2 id="11-对继承有什么了解吗？有几种方式？优劣？"><a href="#11-对继承有什么了解吗？有几种方式？优劣？" class="headerlink" title="11.对继承有什么了解吗？有几种方式？优劣？"></a>11.对继承有什么了解吗？有几种方式？优劣？</h2><h2 id="12-对异步编程有什么了解？就回调函数、Promise，async-await，具体的是指什么？"><a href="#12-对异步编程有什么了解？就回调函数、Promise，async-await，具体的是指什么？" class="headerlink" title="12.对异步编程有什么了解？就回调函数、Promise，async&#x2F;await，具体的是指什么？"></a>12.对异步编程有什么了解？就回调函数、Promise，async&#x2F;await，具体的是指什么？</h2><h2 id="13-作用域和作用域链、块级作用域（√）"><a href="#13-作用域和作用域链、块级作用域（√）" class="headerlink" title="13.作用域和作用域链、块级作用域（√）"></a>13.作用域和作用域链、块级作用域（√）</h2><blockquote>
 <p>作用域：**全局作用域、函数作用域、块级作用域（ES6出的）</p>
 </blockquote>
@@ -1825,7 +1822,7 @@ Math.trunc(d);
       
         <div class="license-meta-item license-meta-date">
           <div>Updated on</div>
-          <div>2023-09-11 20:24</div>
+          <div>2023-09-16 09:54</div>
         </div>
       
       
@@ -1866,8 +1863,8 @@ Math.trunc(d);
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/08/31/%F0%9F%93%A3-%E5%A4%84%E7%90%86hexo%E5%8D%9A%E5%AE%A2%E4%B8%AD%E5%9B%BE%E7%89%87%E4%B8%8D%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/" title="📣 处理hexo博客中图片不显示问题">
-                        <span class="hidden-mobile">📣 处理hexo博客中图片不显示问题</span>
+                      <a href="/2023/08/31/%F0%9F%93%A3-git%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%EF%BC%88%E4%B8%8B%EF%BC%89%EF%BC%8C%E6%AC%A2%E8%BF%8E%E9%A3%9F%E7%94%A8/" title="📣 git基本操作（下），欢迎食用~">
+                        <span class="hidden-mobile">📣 git基本操作（下），欢迎食用~</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
