@@ -23,12 +23,21 @@
 <meta property="og:site_name" content="归故里">
 <meta property="og:description" content="1.联邦学习过程从main出发——&gt; fl_run（联邦学习总的训练过程）——&gt; run_fl_round（联邦学习的一轮训练）——&gt;test（每轮进行测试–测试正常样本和后门样本）——&gt;save_model（保存模型） 2.联邦学习一轮训练1.helper里能干的事情 初始化任务  给params赋值 make_task 找到运行联邦任务的py文件 make_synthe">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/91f9f1a58d134209b4e38f871a4aaa02~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=407&h=505&s=160726&e=png&b=1d1e23">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c0feca889cb6474ba9c2cf579b1ee953~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=537&h=293&s=89757&e=png&b=1d1e23">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d4a83c0757da4dcda0ebdbb7623512c6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=495&h=211&s=80530&e=png&b=1d1e23">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5ba6e90050ef4d3c83602ca5d19bb2f7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=598&h=633&s=279245&e=png&b=1d1e23">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7d7aea08535e46cf9e0ab973aa5d9a9c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=525&h=213&s=93798&e=png&b=1d1e23">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b1042830e9524ae3b46ee1d8bccc299d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=522&h=241&s=85377&e=png&b=1d1e23">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9fcd4f3cf530466286ae7bd7438aa6bf~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=344&h=265&s=84625&e=png&b=1d1e23">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/61f7d6994acb405b857a65f50587b1f3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=367&h=271&s=79401&e=png&b=1d1e23">
 <meta property="article:published_time" content="2023-09-04T09:50:28.000Z">
-<meta property="article:modified_time" content="2023-09-14T08:20:30.462Z">
+<meta property="article:modified_time" content="2023-09-19T06:23:20.562Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="持续更新中">
 <meta property="article:tag" content="backdoors101">
+<meta property="article:tag" content="持续更新中">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/91f9f1a58d134209b4e38f871a4aaa02~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=407&h=505&s=160726&e=png&b=1d1e23">
   
   
   
@@ -248,7 +257,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.4k words
+          5.1k words
         
       </span>
     
@@ -259,7 +268,7 @@
         
         
         
-          29 mins
+          43 mins
         
       </span>
     
@@ -301,7 +310,7 @@
               <p class="note note-info">
                 
                   
-                    Last updated on 2023-09-14 16:20
+                    Last updated on 2023-09-19 14:23
                   
                 
               </p>
@@ -333,6 +342,9 @@
 <li>接着每个参与者在本地训练全局模型，得到上传更新</li>
 <li>然后更新全局模型</li>
 </ol>
+<h2 id="3-全局模型参数和本地模型参数"><a href="#3-全局模型参数和本地模型参数" class="headerlink" title="3.全局模型参数和本地模型参数"></a>3.全局模型参数和本地模型参数</h2><p>1.初始化全局模型参数</p>
+<p>2.全局模型参数</p>
+<p>3.本地模型参数</p>
 <h1 id="3-对参与者进行中毒和随机选择参与者"><a href="#3-对参与者进行中毒和随机选择参与者" class="headerlink" title="3.对参与者进行中毒和随机选择参与者"></a>3.对参与者进行中毒和随机选择参与者</h1><h2 id="1-随机选择10个客户端"><a href="#1-随机选择10个客户端" class="headerlink" title="1.随机选择10个客户端"></a>1.随机选择10个客户端</h2><p><strong>实现</strong>：<code>fl_task</code>文件中<code>sample_users_for_round</code></p>
 <p>里面的实现思路：</p>
 <ol>
@@ -359,14 +371,15 @@
 </ol>
 </li>
 <li>计算本地更新，<ol>
-<li>正常参与者，实现：<code>fl_task</code>文件中<code>get_fl_update</code>。</li>
-<li>恶意参与者，还会乘上一个数，实现：<code>attack</code>文件中的<code>fl_scale_update</code></li>
+<li>正常参与者，实现：<code>fl_task</code>文件中<code>get_fl_update</code>。思路：本地模型—上轮全局模型</li>
+<li>恶意参与者，在正常参与者计算过程上还会乘上一个数（fl_weight_scale），<strong>从而增大该更新的权重</strong>。实现：<code>attack</code>文件中的<code>fl_scale_update</code>。</li>
 </ol>
 </li>
+<li>可以给上传更新用同态加密技术进行加密，实现：<code>fl_task</code>文件中<code>get_fl_update</code></li>
 <li>积累权重然后记录到权重累积字典，实现：<code>fl_task</code>文件中<code>accumulate_weights</code></li>
 <li>更新全局模型，实现：<code>fl_task</code>文件中<code>update_global_model</code></li>
 </ol>
-<h1 id="5-本地模型训练的过程"><a href="#5-本地模型训练的过程" class="headerlink" title="5.本地模型训练的过程"></a>5.本地模型训练的过程</h1><p><strong>实现</strong>：training文件中</p>
+<h1 id="5-本地模型训练的过程"><a href="#5-本地模型训练的过程" class="headerlink" title="5.本地模型训练的过程"></a>5.本地模型训练的过程</h1><p><strong>实现</strong>：training.py文件中</p>
 <p>实现的思路如下：</p>
 <ol>
 <li>确定损失函数：交叉熵，实现：<code>task</code>文件中的<code>make_criterion</code></li>
@@ -435,11 +448,11 @@
 <li>利用交叉熵计算损失</li>
 <li></li>
 </ol>
-<h1 id="7-得到本地上传更新的过程"><a href="#7-得到本地上传更新的过程" class="headerlink" title="7.得到本地上传更新的过程"></a>7.得到本地上传更新的过程</h1><h1 id="8-超参数设置"><a href="#8-超参数设置" class="headerlink" title="8.超参数设置"></a>8.超参数设置</h1><ul>
+<h1 id="7-权重积累过程"><a href="#7-权重积累过程" class="headerlink" title="7.权重积累过程"></a>7.权重积累过程</h1><h1 id="8-更新全局模型过程"><a href="#8-更新全局模型过程" class="headerlink" title="8.更新全局模型过程"></a>8.更新全局模型过程</h1><h1 id="9-超参数设置"><a href="#9-超参数设置" class="headerlink" title="9.超参数设置"></a>9.超参数设置</h1><ul>
 <li>本地学习率：$\eta&#x3D;0.01$</li>
 <li>联邦学习的学习率：$\eta_{fl}&#x3D;10$</li>
 </ul>
-<h1 id="9-自己论文的符号表示"><a href="#9-自己论文的符号表示" class="headerlink" title="9.自己论文的符号表示"></a>9.自己论文的符号表示</h1><p><strong>本地符号：</strong></p>
+<h1 id="10-自己论文的符号表示"><a href="#10-自己论文的符号表示" class="headerlink" title="10.自己论文的符号表示"></a>10.自己论文的符号表示</h1><p><strong>本地符号：</strong></p>
 <ul>
 <li>参与者i：$c_i$</li>
 <li></li>
@@ -448,6 +461,47 @@
 <ul>
 <li>参与者集合：$C&#x3D;{c_1,c_2,…,c_n}$</li>
 </ul>
+<h1 id="11-查看模型相关信息（√）"><a href="#11-查看模型相关信息（√）" class="headerlink" title="11.查看模型相关信息（√）"></a>11.查看模型相关信息（√）</h1><p>这里先搭建一个简单的网络：一共有3层，第一层又包括2个全连接层，第三次也包括2个全连接层。</p>
+<p align=center><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/91f9f1a58d134209b4e38f871a4aaa02~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=407&h=505&s=160726&e=png&b=1d1e23" srcset="/img/loading.gif" lazyload alt="image.png"  width="30%"/></p>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">print</span>(global_model) 			<span class="hljs-comment"># ①直接打印整个模型</span><br><br><span class="hljs-keyword">for</span> layer <span class="hljs-keyword">in</span> global_model.modules():		<span class="hljs-comment"># 循环读取每一层</span><br>    <span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>(layer))						<span class="hljs-comment"># ② 每一层的类型</span><br>    <span class="hljs-built_in">print</span>(layer)							<span class="hljs-comment"># ③ </span><br><br><span class="hljs-keyword">for</span> name, layer <span class="hljs-keyword">in</span> global_model.named_modules():	<span class="hljs-comment"># 循环读取每一层，在上一层的基础上，把名字也打印出来</span><br>    <span class="hljs-built_in">print</span>(name, <span class="hljs-built_in">type</span>(layer))				<span class="hljs-comment"># ④ 每一层的名字和类型</span><br>    <span class="hljs-built_in">print</span>(name, layer)						<br><br><span class="hljs-keyword">for</span> name, layer <span class="hljs-keyword">in</span> global_model.named_children()：<span class="hljs-comment"># 遍历第一层，不会递归子网络</span><br>	<span class="hljs-built_in">print</span>(name, layer)						<span class="hljs-comment"># ⑤</span><br><br><span class="hljs-keyword">for</span> name, param <span class="hljs-keyword">in</span> global_model.named_parameters()：<span class="hljs-comment"># 打印每一层的名字和参数</span><br>	<span class="hljs-built_in">print</span>(name, param.shape)						<span class="hljs-comment"># ⑥</span><br><br><span class="hljs-keyword">for</span> name, param <span class="hljs-keyword">in</span> global_model.state_dict().item()：<span class="hljs-comment"># 将模型中参数键值以字典的方式迭代处理</span><br>	<span class="hljs-built_in">print</span>(name, layer.shape)								<span class="hljs-comment"># ⑦</span><br></code></pre></td></tr></table></figure>
+
+
+
+<p>代码①的结果为：</p>
+<p align=center><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c0feca889cb6474ba9c2cf579b1ee953~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=537&h=293&s=89757&e=png&b=1d1e23" srcset="/img/loading.gif" lazyload alt="image.png"  width="50%"/></p>
+
+<p>代码②的结果为：</p>
+<p align=center><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d4a83c0757da4dcda0ebdbb7623512c6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=495&h=211&s=80530&e=png&b=1d1e23" srcset="/img/loading.gif" lazyload alt="image.png"  width="50%"/></p>
+
+<p>代码③的结果：先打印整个，再打印每一层。递归出了每一层</p>
+<p align=center><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5ba6e90050ef4d3c83602ca5d19bb2f7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=598&h=633&s=279245&e=png&b=1d1e23" srcset="/img/loading.gif" lazyload alt="image.png" width="50%" /></p>
+
+<p>代码④的结果：</p>
+<p align=center><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7d7aea08535e46cf9e0ab973aa5d9a9c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=525&h=213&s=93798&e=png&b=1d1e23" srcset="/img/loading.gif" lazyload alt="image.png" width="50%" /></p>
+
+<p>代码⑤的结果：</p>
+<p align=center><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b1042830e9524ae3b46ee1d8bccc299d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=522&h=241&s=85377&e=png&b=1d1e23" srcset="/img/loading.gif" lazyload alt="image.png" width="50%" /></p>
+
+<p>代码⑥的结果：</p>
+<p align=center><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9fcd4f3cf530466286ae7bd7438aa6bf~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=344&h=265&s=84625&e=png&b=1d1e23" srcset="/img/loading.gif" lazyload alt="image.png"  width="40%"/></p>
+
+<p>代码⑦的结果：</p>
+<p align=center><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/61f7d6994acb405b857a65f50587b1f3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=367&h=271&s=79401&e=png&b=1d1e23" srcset="/img/loading.gif" lazyload alt="image.png" width="40%" /></p>
+
+
+
+<h1 id="12-同态加密"><a href="#12-同态加密" class="headerlink" title="12.同态加密"></a>12.同态加密</h1><p>实现：<code>fl_task</code>文件中<code>get_fl_update</code></p>
+<p>查看生成的Paillier加密的公钥的具体数值：可以访问公钥对象的属性。在phe库中，公钥对象通常具有属性<code>n</code>，它代表了公钥的模数（modulus）。通过访问<code>public_key.n</code>，您可以获取生成的公钥的模数值，这是Paillier加密中的关键参数之一。这个值通常用于加密数据。请注意，这只是公钥的一部分，其他参数通常也存储在公钥对象中，但模数通常是最重要的部分。</p>
+<h2 id="🌸-相关问题"><a href="#🌸-相关问题" class="headerlink" title="🌸 相关问题"></a>🌸 相关问题</h2><p><strong>1.通过同态加密技术加密的两个数据能够进行大小（&gt;、&lt;、&#x3D;）比较吗？</strong></p>
+<p>答：不能直接进行对比大小，需要使用安全函数评估、协议等方法。</p>
+<p><strong>2.同态加密中，由客户端还是服务器端生成密钥对，还是第三方生成？</strong></p>
+<p>答：由客户端生成，因为同态加密的本质是“可用不可见”，客户端拥有重要数据，但没有计算资源，只能委托第三方提供计算服务。数据经客户端生成的公钥加密后发送给服务器端进行计算。（在有些特定的应用中，可能会涉及到使用第三方机构来生成和管理密钥对，以提供额外的安全保障或信任。这种情况下，第三方机构可能会负责生成密钥对并向客户端和服务器分发相应的密钥材料）。但一般的，你有数据，你肯定不相信别人，所以密钥对由自己生成最放心。</p>
+<p>总结：参与方和服务器都有自己的密钥对（公钥和私钥），一般由自己生成。</p>
+<p><strong>3.密钥对在每个参与方都是一样的吗？如果一样的话，如果有参与方是恶意的？岂不是很危险？如果是不一样的，那不一样的密钥加密的数据可以加法运算吗？</strong></p>
+<p>答：密钥对通常是不同的，每个参与方都会有自己的密钥对，因为每个参与方需要进行不同的操作和计算，并且保持自己对密钥对的控制。数据是用公钥进行加密，如果数据方想给服务器发传递什么重要数据的话，是拿着服务器放的公钥加密的。</p>
+<p><strong>4.参与方用自己的公钥进行加密，收到密文后用私钥进行解密，（不同公钥加密的数据不能进行计算）这个过程中不同公钥加密的密文在服务器端怎么进行聚合呢？而且服务器端的公钥和私钥有什么作用呢？</strong></p>
+<h1 id="13-实验中的小技巧"><a href="#13-实验中的小技巧" class="headerlink" title="13.实验中的小技巧"></a>13.实验中的小技巧</h1><p>1.让代码在某一行停止，在那一行后面加<code>sys.exit(1)</code>。</p>
 <h1 id="文末"><a href="#文末" class="headerlink" title="文末"></a>文末</h1>
                 
               </div>
@@ -481,9 +535,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%E4%B8%AD/" class="print-no-link">#持续更新中</a>
-      
         <a href="/tags/backdoors101/" class="print-no-link">#backdoors101</a>
+      
+        <a href="/tags/%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%E4%B8%AD/" class="print-no-link">#持续更新中</a>
       
     </div>
   
@@ -514,7 +568,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Updated on</div>
-          <div>2023-09-14 16:20</div>
+          <div>2023-09-19 14:23</div>
         </div>
       
       
@@ -545,9 +599,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/09/04/%F0%9F%93%A3-%E6%94%BB%E5%87%BB%E5%AE%9E%E9%AA%8C/" title="📣 攻击实验">
+                      <a href="/2023/09/05/%F0%9F%93%A3-%E6%B1%82%E8%81%8C%E7%9A%84%E6%B5%8B%E8%AF%84%E9%A2%98%E5%88%86%E6%9E%90/" title="📣 求职的测评题分析">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">📣 攻击实验</span>
+                        <span class="hidden-mobile">📣 求职的测评题分析</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     

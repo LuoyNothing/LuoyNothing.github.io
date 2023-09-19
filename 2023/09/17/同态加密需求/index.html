@@ -16,24 +16,21 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="# 📚  同态加密    # 📚 差分隐私  ## 🌸 这里给出cdp的推理过程  ​	首先给出中心化差分隐私（CDP）的**严格定义**  ​	$$\operatorname{Pr}[\mathcal{A}(D) \in S] \leqslant \operatorname{Pr}\left[\mathcal{A}\left(D^{\prime}\right) \in S\right]">
+    <meta name="description" content="1.需要做的： ​	1.一份联邦学习同态加密代码，能够跑通无bug ​	2.我有几个问题，需要给我解答，问题写在下面。 1.通过同态加密技术加密的两个数据能够进行大小（&gt;、&lt;、&#x3D;）比较吗？ 2.同态加密中，由客户端还是服务器端生成密钥对，还是第三方生成？ 3.密钥对在每个参与方都是一样的吗？如果一样的话，如果有参与方是恶意的？岂不是很危险？如果是不一样的，那不一样的密钥加密的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="📣-论文理论积累">
-<meta property="og:url" content="https://luoynothing.github.io/2023/09/14/%F0%9F%93%A3-%E8%AE%BA%E6%96%87%E7%90%86%E8%AE%BA%E7%A7%AF%E7%B4%AF/index.html">
+<meta property="og:title" content="同态加密需求">
+<meta property="og:url" content="https://luoynothing.github.io/2023/09/17/%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86%E9%9C%80%E6%B1%82/index.html">
 <meta property="og:site_name" content="归故里">
-<meta property="og:description" content="# 📚  同态加密    # 📚 差分隐私  ## 🌸 这里给出cdp的推理过程  ​	首先给出中心化差分隐私（CDP）的**严格定义**  ​	$$\operatorname{Pr}[\mathcal{A}(D) \in S] \leqslant \operatorname{Pr}\left[\mathcal{A}\left(D^{\prime}\right) \in S\right]">
+<meta property="og:description" content="1.需要做的： ​	1.一份联邦学习同态加密代码，能够跑通无bug ​	2.我有几个问题，需要给我解答，问题写在下面。 1.通过同态加密技术加密的两个数据能够进行大小（&gt;、&lt;、&#x3D;）比较吗？ 2.同态加密中，由客户端还是服务器端生成密钥对，还是第三方生成？ 3.密钥对在每个参与方都是一样的吗？如果一样的话，如果有参与方是恶意的？岂不是很危险？如果是不一样的，那不一样的密钥加密的">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ad919ed16ab34ca1b92d4d61cde7a2fb~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=372&h=264&s=14908&e=png&a=1&b=ffffff">
-<meta property="article:published_time" content="2023-09-14T13:06:05.000Z">
-<meta property="article:modified_time" content="2023-09-17T10:53:09.509Z">
+<meta property="article:published_time" content="2023-09-17T08:08:35.000Z">
+<meta property="article:modified_time" content="2023-09-18T11:03:07.458Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="论文理论">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ad919ed16ab34ca1b92d4d61cde7a2fb~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=372&h=264&s=14908&e=png&a=1&b=ffffff">
   
   
   
-  <title>📣-论文理论积累 - 归故里</title>
+  <title>同态加密需求 - 归故里</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -226,7 +223,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">📣-论文理论积累</span>
+            <span id="subtitle">同态加密需求</span>
           
         </div>
 
@@ -237,8 +234,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-09-14 21:06" pubdate>
-          2023-09-14 21:06
+        <time datetime="2023-09-17 16:08" pubdate>
+          2023-09-17 16:08
         </time>
       </span>
     
@@ -249,7 +246,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.6k words
+          359 words
         
       </span>
     
@@ -260,7 +257,7 @@
         
         
         
-          39 mins
+          3 mins
         
       </span>
     
@@ -297,12 +294,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">📣-论文理论积累</h1>
+            <h1 id="seo-header">同态加密需求</h1>
             
               <p class="note note-info">
                 
                   
-                    Last updated on 2023-09-17 18:53
+                    Last updated on 2023-09-18 19:03
                   
                 
               </p>
@@ -310,88 +307,14 @@
             
               <div class="markdown-body">
                 
-                
-
-# 📚  同态加密
-
-
-
-# 📚 差分隐私
-
-## 🌸 这里给出cdp的推理过程
-
-​	首先给出中心化差分隐私（CDP）的**严格定义**
-
-​	$$\operatorname{Pr}[\mathcal{A}(D) \in S] \leqslant \operatorname{Pr}\left[\mathcal{A}\left(D^{\prime}\right) \in S\right] \times \mathrm{e}^{\epsilon}$$
-
-​	定义（**松弛DP**） $$(\epsilon, \delta)$$-差分隐私  对于只有一个记录不同的两个数据集$$D$$和$$D'$$，一个随机算法$$M$$，以及对于任意的输出$$S\subset\text{Range}(M)$$，我们称随机算法$$M$$提供$$(\epsilon, \delta)$$-差分隐私保护，当且仅当其满足：
-
-​	$$\operatorname{Pr}[\mathcal{M}(D) \in S] \leqslant \operatorname{Pr}\left[\mathcal{M}\left(D^{\prime}\right) \in S\right] \times \mathrm{e}^{\epsilon}+\delta$$
-
-​	其中，$$\epsilon$$表示隐私预算，$$\delta$$表示失败概率。当$$\delta=0$$时，便得到了性能更好的$$\epsilon$$-差分隐私。$$\epsilon$$用于控制算法$$M$$在邻近数据集上获得相同输出的概率比值。$$\epsilon$$越小，那么算法在邻近数据集上获得相同输出的概率就越大，用户就通过输出结果无法判断数据到底是来自哪个数据集，从而达到隐私保护的目的。特别的，当$$\epsilon=0$$时，算法$$M$$在邻近数据集上得到相同的输出的概率是一样的。反之，$$\epsilon$$越大，其隐私保护的程度就越低。
-
-
-
-**加拉普拉斯噪声的推导过程如下：**
-
-$$\operatorname{Pr}[\mathcal{A}(D) = t] \leqslant \operatorname{Pr}\left[\mathcal{A}\left(D^{\prime}\right) =t\right] \times \mathrm{e}^{\epsilon}$$
-
-这里的$A$是一个算法，我们希望通过$A$这个算法使得$\frac{\operatorname{Pr}[\mathcal{A}(D) = t]}{\operatorname{Pr}[\mathcal{A}(D^{\prime}) = t]}\le {e}^{\epsilon} $ 两个概率的比值小于等于${e}^{\epsilon}$，$$A$$是一个函数，我们想设计这个函数满足上面的条件，其中$$A(x) = F(x) + x$$，其中$$F(X)$$是原函数，我们通过在原函数上加一个噪声$$x$$（加一个分布）来设计这个$A$算法，根据所加噪声的量来使其达到上述条件。
-
-那么怎么加？加多少呢？
-
-我们先来看拉普拉斯噪声
-
-$\frac{\operatorname{Pr}[\mathcal{A}(D) = t]}{\operatorname{Pr}[\mathcal{A}(D^{\prime}) = t]} = \frac{\operatorname{Pr}[\mathcal F(D) + x = t]}{\operatorname{Pr}[\mathcal F(D^{\prime}) + x= t]} = \frac{\operatorname{Pr}[\mathcal x = t - \mathcal F(D)]}{\operatorname{Pr}[\mathcal x= t - \mathcal F(D^{\prime})]} $
-
-​	我们这里想用拉普拉斯加噪，也就是将$x$当做拉普拉斯分布，那么满足$\mathrm{e}^{\epsilon}$的条件下应该加多少噪声呢？，其中拉普拉斯分布的密度函数为$f(x \mid \mu, \beta )=\frac{1}{2 \beta} e^{-\frac{|x-\mu|}{\beta}}$，其中$\mu$是位置参数，$\beta$是尺度参数，这里令$\mu=0$，则$f(x \mid 0, \beta )=\frac{1}{2 \beta} e^{-\frac{|x|}{\beta}}$（也就是这里$\beta$应该怎么取值），将这个式子带进去可得：其中涉及三角不等式$\left | a \right | - \left | b \right | \le \left | a - b \right |$，即可得如下的计算过程。
-
-$\frac{\frac{1}{2 \beta} e^{-\frac{|t - \mathcal F(D)|}{\beta}}}{ \frac{1}{2 \beta} e^{-\frac{|t - \mathcal F(D^{\prime})|}{\beta}}} = e^{\frac{|t - \mathcal F(D^{\prime}))| - |t - \mathcal F(D)|}{\beta}}  \le e^{\frac{|\mathcal F(D) - \mathcal F(D^{\prime})|}{\beta}} $
-
-又因为敏感度的定义：$|\mathcal F(D) - \mathcal F(D^{\prime})| \le  \Delta f$
-
-所以上述式子继续化简为：$\le e^{\frac{\Delta f}{\beta } } $
-
-使用拉普拉斯噪声进行处理得到的概率比值$\le e^{\frac{\Delta f}{\beta } } $得满足定义条件，所以$\le e^{\frac{\Delta f}{\beta } } \le e^{\epsilon}$，即$\frac{\Delta f}{\beta } \le \epsilon$即可，最后$\beta$只要$\ge \frac{\Delta f}{\epsilon }$即可满足隐私保护条件。$\epsilon$ 我们称为隐私损失，隐私损失越小，分布相似度越高，隐私保护越高，$\beta$也就越大，图越平缓（如下图可见），所加噪声越多。
-
-<p align=center><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ad919ed16ab34ca1b92d4d61cde7a2fb~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=372&h=264&s=14908&e=png&a=1&b=ffffff" srcset="/img/loading.gif" lazyload alt="image.png"  width="40%"/></p>
-
-**下面开始推导加高斯噪声的过程：**
-
-松弛差分隐私定义：
-
-$$\operatorname{Pr}[\mathcal{A}(D) = t] \leqslant \operatorname{Pr}\left[\mathcal{A}\left(D^{\prime}\right) =t\right] \times \mathrm{e}^{\epsilon}+\delta$$
-
-上述表示违反严格差分隐私的概率为$$\delta$$，也可以这么写$\operatorname{Pr}\left[\frac{\operatorname{Pr}[\mathcal{A}(D) = t]}{\operatorname{Pr}[\mathcal{A}(D^{\prime}) = t]}\ge {e}^{\epsilon}\right] \le \delta $
-
-这里我们要加高斯分布，我们还是先来计算概率的比值：
-
-
-$\frac{\operatorname{Pr}[\mathcal{A}(D) = t]}{\operatorname{Pr}[\mathcal{A}(D^{\prime}) = t]} = \frac{\operatorname{Pr}[\mathcal F(D) + x = t]}{\operatorname{Pr}[\mathcal F(D^{\prime}) + x= t]} = \frac{\operatorname{Pr}[\mathcal x = t - \mathcal F(D)]}{\operatorname{Pr}[\mathcal x= t - \mathcal F(D^{\prime})]} $
-
-这里$x$就表示我们要加的高斯噪声，高斯密度函数为$f(x \mid \mu, \sigma )=\frac{1}{\sqrt{2 \pi} \sigma} e^{-\frac{(x-\mu)^{2}}{2 \sigma^{2}}}$，其中$\mu$称为均值，$\sigma^2$称为方差，$\sigma$表示标准差。这里均值先取0，即为$f(x \mid 0, \sigma )=\frac{1}{\sqrt{2 \pi} \sigma} e^{-\frac{x^{2}}{2 \sigma^{2}}}$。
-
-这里就不能像上面一样把密度函数带进去，因为$x^2$是消不掉的，所以这里，我们让$t - \mathcal F(D) = x$，然后$t - \mathcal F(D^{\prime})) = x + \Delta f$，这里的$\Delta f$是敏感度，先暂时考虑=的情况，然后带入进去看一下：
-
-$\frac{\frac{1}{\sqrt{2 \pi} \sigma} e^{-\frac{{(t - \mathcal F(D))}^{2}}{2 \sigma^{2}}}}{\frac{1}{\sqrt{2 \pi} \sigma} e^{-\frac{(t - \mathcal F(D^{\prime}))^{2}}{2 \sigma^{2}}}} = e^{\frac{(t - \mathcal F(D^{\prime}))^{2} - (t - \mathcal F(D))^{2}}{2 \sigma^{2}}} = e^{\frac{(x + \Delta f)^{2} - x^{2}}{2 \sigma^{2}}} = e^{\frac{2x \Delta f + {\Delta f}^2}{2 \sigma^{2}}}$
-
-最右边得到的式子还是一个高斯分布，也可以称为亚高斯分布。我们要想满足差分隐私的条件，就需要使得
-
-$\frac{2x \Delta f + {\Delta f}^2}{2 \sigma^{2}} \le \epsilon$，把$x$全部放到左边去，可以得到：$x \le \frac{\sigma ^2 \epsilon }{\Delta f} - \frac{\Delta f}{2} $，这个$x$本身是取任意值的，是不能让他小于某个值，所以不能满足严格差分隐私，这里呢我们让$1- \delta$的概率满足$\le \epsilon$即可，也就是让$\delta$的概率满足$\ge \epsilon$即可，即：
-
-$$\operatorname{Pr}[|x| \ge \frac{\sigma ^2 \epsilon }{\Delta f} - \frac{\Delta f}{2}] \leqslant \delta$$，也就是说这个x违反严格差分隐私的概率控制在$\delta$范围内，图像具有对称性，看一边的话则为：$$\operatorname{Pr}[x \ge \frac{\sigma ^2 \epsilon }{\Delta f} - \frac{\Delta f}{2}] \leqslant \frac {\delta}{2}$$
-
-
-
-
-
-我要给全局模型参数加高斯噪声，其中$$L\sim \operatorname{Gaussian}\left(0,\sigma^2 \right)$$为添加的随机噪声概率密度函数，即服从参数$$\mu=0,  $$$$\sigma=\sqrt{2 \operatorname{In} \frac{1.25}{\delta}} \times \frac{\Delta f}{\epsilon}$$的高斯分布。
-
-我想知道其中的$\Delta f$、$\epsilon$、$\delta$ 如何设置？敏感度如何计算得出的？
-
-
-
-
+                <p>1.需要做的：</p>
+<p>​	1.一份联邦学习同态加密代码，能够跑通无bug</p>
+<p>​	2.我有几个问题，需要给我解答，问题写在下面。</p>
+<p>1.通过同态加密技术加密的两个数据能够进行大小（&gt;、&lt;、&#x3D;）比较吗？</p>
+<p>2.同态加密中，由客户端还是服务器端生成密钥对，还是第三方生成？</p>
+<p>3.密钥对在每个参与方都是一样的吗？如果一样的话，如果有参与方是恶意的？岂不是很危险？如果是不一样的，那不一样的密钥加密的数据可以加法运算吗？</p>
+<p>1.联邦学习训练过程中，每个参与方和服务端都有自己的密钥对。每个参与方用自己的公钥加密上传更新后，因为不同公钥加密的数据不能进行计算，上传到服务端怎么进行聚合呢？服务端的密钥对有什么作用呢？</p>
+<p>2.上次你说同态加密的数据不能直接对比大小，需要使用安全函数评估、协议等方法，能再详细的给我说一下吗？可以举个简单的例子。</p>
 
                 
               </div>
@@ -400,34 +323,6 @@ $$\operatorname{Pr}[|x| \ge \frac{\sigma ^2 \epsilon }{\Delta f} - \frac{\Delta 
             <div>
               <div class="post-metas my-3">
   
-    <div class="post-meta mr-3 d-flex align-items-center">
-      <i class="iconfont icon-category"></i>
-      
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E8%AE%BA%E6%96%87%E5%AE%9E%E9%AA%8C/" class="category-chain-item">论文实验</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-    </div>
-  
-  
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/%E8%AE%BA%E6%96%87%E7%90%86%E8%AE%BA/" class="print-no-link">#论文理论</a>
-      
-    </div>
   
 </div>
 
@@ -437,8 +332,8 @@ $$\operatorname{Pr}[|x| \ge \frac{\sigma ^2 \epsilon }{\Delta f} - \frac{\Delta 
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>📣-论文理论积累</div>
-      <div>https://luoynothing.github.io/2023/09/14/📣-论文理论积累/</div>
+      <div>同态加密需求</div>
+      <div>https://luoynothing.github.io/2023/09/17/同态加密需求/</div>
     </div>
     <div class="license-meta">
       
@@ -450,13 +345,13 @@ $$\operatorname{Pr}[|x| \ge \frac{\sigma ^2 \epsilon }{\Delta f} - \frac{\Delta 
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>2023-09-14 21:06</div>
+          <div>2023-09-17 16:08</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>Updated on</div>
-          <div>2023-09-17 18:53</div>
+          <div>2023-09-18 19:03</div>
         </div>
       
       
@@ -487,9 +382,9 @@ $$\operatorname{Pr}[|x| \ge \frac{\sigma ^2 \epsilon }{\Delta f} - \frac{\Delta 
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/09/15/%F0%9F%93%A3-%E9%98%B2%E5%BE%A1%E5%AE%9E%E9%AA%8C/" title="📣-防御实验">
+                      <a href="/2023/09/17/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81%E9%9C%80%E6%B1%82/" title="差分隐私需求">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">📣-防御实验</span>
+                        <span class="hidden-mobile">差分隐私需求</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -497,8 +392,8 @@ $$\operatorname{Pr}[|x| \ge \frac{\sigma ^2 \epsilon }{\Delta f} - \frac{\Delta 
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/09/14/%E4%BD%8E%E9%80%9A%E6%BB%A4%E6%B3%A2%E5%99%A8%E9%9C%80%E6%B1%82/" title="低通滤波器需求">
-                        <span class="hidden-mobile">低通滤波器需求</span>
+                      <a href="/2023/09/17/%E8%81%94%E9%82%A6%E5%AD%A6%E4%B9%A0%E5%90%8E%E9%97%A8%E6%94%BB%E5%87%BB%E9%9C%80%E6%B1%82/" title="联邦学习后门攻击需求">
+                        <span class="hidden-mobile">联邦学习后门攻击需求</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
