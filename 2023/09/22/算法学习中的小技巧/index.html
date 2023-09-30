@@ -16,19 +16,21 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta property="og:type" content="article">
-<meta property="og:title" content="差分隐私需求">
-<meta property="og:url" content="https://luoynothing.github.io/2023/09/17/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81%E9%9C%80%E6%B1%82/index.html">
+    <meta name="description" content="1.求最大值1.求数组的最大值 方法一：排序 12345678let sortArr &#x3D; arr.sort((a, b) &#x3D;&gt; a - b)&#x2F;&#x2F; 最小值sortArr[0]&#x2F;&#x2F; 最大值sortArr[sortArr.length - 1]&#x2F;&#x2F; 结果console.log(sortArr[0]); &#x2F;&#x2F; 1console.log(sortArr[sortArr.length - 1]); &#x2F;&#x2F;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法学习中的小技巧">
+<meta property="og:url" content="https://luoynothing.github.io/2023/09/22/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84%E5%B0%8F%E6%8A%80%E5%B7%A7/index.html">
 <meta property="og:site_name" content="归故里">
+<meta property="og:description" content="1.求最大值1.求数组的最大值 方法一：排序 12345678let sortArr &#x3D; arr.sort((a, b) &#x3D;&gt; a - b)&#x2F;&#x2F; 最小值sortArr[0]&#x2F;&#x2F; 最大值sortArr[sortArr.length - 1]&#x2F;&#x2F; 结果console.log(sortArr[0]); &#x2F;&#x2F; 1console.log(sortArr[sortArr.length - 1]); &#x2F;&#x2F;">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-09-17T08:38:48.000Z">
-<meta property="article:modified_time" content="2023-09-17T08:38:48.617Z">
+<meta property="article:published_time" content="2023-09-22T01:03:31.000Z">
+<meta property="article:modified_time" content="2023-09-22T02:11:12.586Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>差分隐私需求 - 归故里</title>
+  <title>算法学习中的小技巧 - 归故里</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -221,7 +223,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">差分隐私需求</span>
+            <span id="subtitle">算法学习中的小技巧</span>
           
         </div>
 
@@ -232,8 +234,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-09-17 16:38" pubdate>
-          2023-09-17 16:38
+        <time datetime="2023-09-22 09:03" pubdate>
+          2023-09-22 09:03
         </time>
       </span>
     
@@ -244,7 +246,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          0 words
+          982 words
         
       </span>
     
@@ -255,7 +257,7 @@
         
         
         
-          1 mins
+          9 mins
         
       </span>
     
@@ -292,12 +294,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">差分隐私需求</h1>
+            <h1 id="seo-header">算法学习中的小技巧</h1>
             
               <p class="note note-info">
                 
                   
-                    Last updated on 2023-09-17 16:38
+                    Last updated on 2023-09-22 10:11
                   
                 
               </p>
@@ -305,13 +307,54 @@
             
               <div class="markdown-body">
                 
-                
+                <h1 id="1-求最大值"><a href="#1-求最大值" class="headerlink" title="1.求最大值"></a>1.求最大值</h1><p><strong>1.求数组的最大值</strong></p>
+<p>方法一：排序</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> sortArr = arr.<span class="hljs-title function_">sort</span>(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a - b)<br><span class="hljs-comment">// 最小值</span><br>sortArr[<span class="hljs-number">0</span>]<br><span class="hljs-comment">// 最大值</span><br>sortArr[sortArr.<span class="hljs-property">length</span> - <span class="hljs-number">1</span>]<br><span class="hljs-comment">// 结果</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(sortArr[<span class="hljs-number">0</span>]); <span class="hljs-comment">// 1</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(sortArr[sortArr.<span class="hljs-property">length</span> - <span class="hljs-number">1</span>]); <span class="hljs-comment">// 9</span><br></code></pre></td></tr></table></figure>
+
+<p>方法二：使用扩展运算符</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">min</span>(...arr)); <span class="hljs-comment">// 1</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">max</span>(...arr)); <span class="hljs-comment">// 9</span><br></code></pre></td></tr></table></figure>
+
+<p>方式三：使用reduce方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> res = arr.<span class="hljs-title function_">reduce</span>(<span class="hljs-function">(<span class="hljs-params">pre, cur</span>) =&gt;</span> &#123;<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(pre + <span class="hljs-string">&quot;----&quot;</span> + cur);<br>  <span class="hljs-keyword">return</span> pre &gt; cur ? pre : cur;<br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<p><strong>2.求map的最大值</strong></p>
+<h1 id="2-数组去重"><a href="#2-数组去重" class="headerlink" title="2.数组去重"></a>2.数组去重</h1><p>方法一：使用reduce方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> arr = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">4</span>, <span class="hljs-number">1</span>]<br><span class="hljs-keyword">let</span> newArr = arr.<span class="hljs-title function_">reduce</span>(<span class="hljs-function">(<span class="hljs-params">pre,cur</span>) =&gt;</span> &#123;<br>    <span class="hljs-keyword">if</span>(!pre.<span class="hljs-title function_">includes</span>(cur))&#123;<br>      <span class="hljs-keyword">return</span> pre.<span class="hljs-title function_">concat</span>(cur)<br>    &#125;<span class="hljs-keyword">else</span>&#123;<br>      <span class="hljs-keyword">return</span> pre<br>    &#125;<br>&#125;,[])  <br></code></pre></td></tr></table></figure>
+
+<h1 id="3-字符统计"><a href="#3-字符统计" class="headerlink" title="3.字符统计"></a>3.字符统计</h1><p>方法一：使用reduce方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> str = <span class="hljs-string">&#x27;abcdaabc&#x27;</span>;<br>str.<span class="hljs-title function_">split</span>(<span class="hljs-string">&#x27;&#x27;</span>).<span class="hljs-title function_">reduce</span>(<span class="hljs-function">(<span class="hljs-params">res, cur</span>) =&gt;</span> &#123;<br>    res[cur] ? res[cur] ++ : res[cur] = <span class="hljs-number">1</span> <span class="hljs-comment">// 如果cur第一次出现，记为1</span><br>    <span class="hljs-keyword">return</span> res;                           <span class="hljs-comment">// 否则记录数+1</span><br>&#125;, &#123;&#125;)                                    <span class="hljs-comment">// 得到 &#123;a: 3, b: 2, c: 2, d: 1&#125;</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="4-数组压平"><a href="#4-数组压平" class="headerlink" title="4.数组压平"></a>4.数组压平</h1><p>方法一：reduce方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> arr = [[<span class="hljs-number">0</span>, <span class="hljs-number">1</span>], [<span class="hljs-number">2</span>, <span class="hljs-number">3</span>], [<span class="hljs-number">4</span>, <span class="hljs-number">5</span>]]      <span class="hljs-comment">// 二维数组</span><br><span class="hljs-keyword">let</span> newArr = arr.<span class="hljs-title function_">reduce</span>(<span class="hljs-function">(<span class="hljs-params">pre,cur</span>) =&gt;</span> &#123;<br>    <span class="hljs-keyword">return</span> pre.<span class="hljs-title function_">concat</span>(cur)              <span class="hljs-comment">// 合并pre 与 cur, 并返回一个新数组</span><br>&#125;,[])<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(newArr);                    <span class="hljs-comment">// 一维数组 [0, 1, 2, 3, 4, 5]</span><br></code></pre></td></tr></table></figure>
+
+
                 
               </div>
             
             <hr/>
             <div>
               <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%B7%A5%E4%BD%9C/" class="category-chain-item">工作</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
   
   
 </div>
@@ -322,8 +365,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>差分隐私需求</div>
-      <div>https://luoynothing.github.io/2023/09/17/差分隐私需求/</div>
+      <div>算法学习中的小技巧</div>
+      <div>https://luoynothing.github.io/2023/09/22/算法学习中的小技巧/</div>
     </div>
     <div class="license-meta">
       
@@ -335,13 +378,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>2023-09-17 16:38</div>
+          <div>2023-09-22 09:03</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>Updated on</div>
-          <div>2023-09-17 16:38</div>
+          <div>2023-09-22 10:11</div>
         </div>
       
       
@@ -372,9 +415,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/09/21/%F0%9F%93%A3%20%E6%94%BF%E6%B2%BB-%E9%A9%AC%E5%93%B2%E5%AF%BC%E5%9B%BE/" title="📣 政治 马哲导图">
+                      <a href="/2023/09/23/%E7%BE%8E%E7%9A%84%E5%89%8D%E7%AB%AF%E7%AC%94%E8%AF%95%E9%A2%98/" title="美的前端笔试题">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">📣 政治 马哲导图</span>
+                        <span class="hidden-mobile">美的前端笔试题</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -382,8 +425,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/09/17/%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86%E9%9C%80%E6%B1%82/" title="同态加密需求">
-                        <span class="hidden-mobile">同态加密需求</span>
+                      <a href="/2023/09/21/%F0%9F%93%A3-%E5%86%9B%E9%98%9F%E6%96%87%E8%81%8C%E5%A4%87%E8%80%83/" title="📣 军队文职备考">
+                        <span class="hidden-mobile">📣 军队文职备考</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
