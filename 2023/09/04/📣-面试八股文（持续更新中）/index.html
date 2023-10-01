@@ -30,7 +30,7 @@
 <meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/715c839f767d41dc98669788c9705772~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=634&h=277&s=82226&e=png&b=fdf9f8">
 <meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b5058d13e4a548a3b40e0ae074ffbb92~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=634&h=373&s=84518&e=png&b=fefdfd">
 <meta property="article:published_time" content="2023-09-04T09:50:28.000Z">
-<meta property="article:modified_time" content="2023-09-30T13:02:18.649Z">
+<meta property="article:modified_time" content="2023-09-30T13:43:14.056Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="持续更新中">
 <meta property="article:tag" content="八股文">
@@ -266,7 +266,7 @@
         
         
         
-          512 mins
+          510 mins
         
       </span>
     
@@ -308,7 +308,7 @@
               <p class="note note-info">
                 
                   
-                    Last updated on 2023-09-30 21:02
+                    Last updated on 2023-09-30 21:43
                   
                 
               </p>
@@ -1230,29 +1230,22 @@ Math.trunc(d);
 </ul>
 <p><strong>函数作用域：</strong></p>
 <ul>
-<li><p>函数作用域是在函数内部声明的变量和函数所拥有的作用域。这意味着在函数内声明的变量只能在该函数内部访问，外部的代码无法直接访问这些变量。这有助于封装变量，防止命名冲突，并提高代码的可维护性。</p>
-</li>
-<li><p>调用函数时创建函数作用域，函数执行完毕以后，函数作用域销毁。每调用一次函数就会创建一个新的函数作用域，他们之间是互相独立的。在函数作用域中可以访问到全局作用域的变量。</p>
-</li>
-<li><p>在全局作用域中无法访问到函数作用域的变量。当在函数作用域操作一个变量时，它会先在自身作用域中寻找，如果有就直接使用如果没有则向上一级作用域中寻找，直到找到全局作用域。如果全局作用域中依然没有找到，则会报错ReferenceError。</p>
-</li>
-<li><p>在函数中要访问全局变量可以使用window对象。</p>
-</li>
+<li>函数作用域是在函数内部声明的变量和函数所拥有的作用域。这意味着在函数内声明的变量只能在该函数内部访问，外部的代码无法直接访问这些变量。这样做的好处是有助于封装变量，防止命名冲突，并且可以提高代码的可维护性。</li>
+<li>我们在调用函数的时候会创建函数作用域，函数执行完毕以后，函数作用域销毁。每调用一次函数就会创建一个新的函数作用域，他们之间是互相独立的。</li>
+<li>需要注意的是：在函数作用域中可以使用window对象访问到全局作用域的变量，但在全局作用域中无法访问到函数作用域的变量。当在函数作用域操作一个变量时，它会先在自身作用域中寻找，如果有就直接使用如果没有则向上一级作用域中寻找，直到找到全局作用域。如果全局作用域中依然没有找到，则会报错ReferenceError。</li>
 </ul>
 <p><strong>块级作用域（Block Scope）</strong>：</p>
 <ul>
-<li>块级作用域是在 JavaScript ES6（ECMAScript 2015）引入的新概念。它使得变量在 <code>&#123; &#125;</code> 块内部声明时具有局部作用域，而不再仅限于函数作用域。块级作用域通常与 <code>let</code> 和 <code>const</code> 关键字一起使用。这有助于更细粒度地控制变量的作用域</li>
+<li>块级作用域是在ES6中引入的新概念，它使得变量在 <code>&#123; &#125;</code> 块中声明时具有局部作用域，而不再仅限于函数作用域。块级作用域通常与 <code>let</code> 和 <code>const</code> 关键字一起使用，这样做的好处是有助于更细粒度地控制变量的作用域。</li>
 <li><code>if</code> 语句和 <code>for</code> 语句里面的 <code>&#123; &#125;</code> 也属于块作用域。</li>
 </ul>
-<p><strong>1. 作用</strong>：</p>
+<p><strong>1. 作用域的作用有很多</strong>：</p>
 <ol>
-<li><strong>变量封装和隔离：</strong> 作用域允许你将变量和函数封装在一个特定的区域内，以防止命名冲突和不必要的全局污染。这意味着你可以在不同的作用域中定义具有相同名称的变量或函数而不会相互干扰。</li>
-<li><strong>变量可见性：</strong> 作用域定义了变量在代码中的可见范围。在一个作用域内声明的变量只能在该作用域内访问，而不能在外部作用域访问。这有助于控制变量的访问权限，防止不必要的外部访问和修改。</li>
-<li><strong>生命周期管理：</strong> 作用域还控制了变量的生命周期，即它们存在的时间段。在离开作用域时，作用域内的变量通常会被销毁，从而释放内存资源。这有助于减少内存泄漏和提高代码的性能。</li>
+<li><strong>比如：变量封装和隔离：</strong> 作用域允许你将变量和函数封装在一个特定的区域内，以防止命名冲突和不必要的全局污染。这意味着你可以在不同的作用域中定义具有相同名称的变量或函数而不会相互干扰。</li>
+<li><strong>还有生命周期管理：</strong> 作用域还控制了变量的生命周期，即它们存在的时间段。在离开作用域时，作用域内的变量通常会被销毁，从而释放内存资源。这样做的好处是有助于减少内存泄漏和提高代码的性能。</li>
 <li><strong>作用域链：</strong> 作用域链是一种嵌套的结构，允许内部作用域访问外部作用域中的变量。这种机制使得函数能够访问其定义范围之外的变量，如闭包（closure）中的概念。</li>
 <li><strong>代码组织和模块化：</strong> 作用域有助于将代码模块化，使得代码更易于组织、维护和重用。你可以将相关的变量和函数放在同一个作用域中，以创建更清晰和可维护的代码结构。</li>
 </ol>
-<p>总之，作用域是一种关键的编程概念，它提供了变量和函数的可见性和隔离，有助于管理变量的生命周期，同时也支持了一些高级的编程模式，如闭包。通过正确使用作用域，你可以编写更健壮、可维护和可扩展的代码。</p>
 <p><strong>2. （不算块级作用域）有多少个作用域</strong>：n+1原则，n表示定义了几个函数，1表示全局作用域</p>
 <p><strong>3. 作用域和执行上下文的区别：</strong></p>
 <ul>
@@ -1269,8 +1262,8 @@ Math.trunc(d);
 </li>
 <li>联系<ul>
 <li>上下文环境（对象）是从属于所在的作用域的</li>
-<li>全局上下文环境&#x3D;&#x3D;》全局作用域</li>
-<li>函数上下文环境&#x3D;&#x3D;》对应的函数作用域</li>
+<li>全局上下文环境&#x3D;&#x3D;&gt;全局作用域</li>
+<li>函数上下文环境&#x3D;&#x3D;&gt;对应的函数作用域</li>
 </ul>
 </li>
 </ul>
@@ -1298,7 +1291,7 @@ Math.trunc(d);
 <p>引入块级作用域的方式是使用 <code>let</code> 和 <code>const</code> 关键字来声明变量，它们具有块级作用域，而不是像 <code>var</code> 一样具有函数作用域。这样的改进使得 JavaScript 代码更加可控和可预测，有助于提高代码质量和安全性。</p>
 <h2 id="15-事件循环（√）"><a href="#15-事件循环（√）" class="headerlink" title="15.事件循环（√）"></a>15.事件循环（√）</h2><p><strong>其他问法：</strong>给一段代码，事件循环结果输出是什么</p>
 <p>事件循环的动画演示：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1RW4y147Xv/?spm_id_from=333.337.search-card.all.click&vd_source=94d2cdd20c6d4a2ab076b4fda45b3865">浏览器EventLoop事件循环机制动画演示_哔哩哔哩_bilibili</a></p>
-<p>JS是一个单线程的动态解释性语言，需要通过JS的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/JavaScript%E5%BC%95%E6%93%8E">引擎(JS Engine)</a>进行解释(翻译)成对应的字节码、机器码然后才会运行。随着网页复杂性和性能要求的提高，JS引擎也经历了从<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/SpiderMonkey">SpiderMonkey</a>到<a target="_blank" rel="noopener" href="https://v8.dev/">V8(由google开发)</a>的变革，而由谷歌开发的V8引擎最为出色，目前已被大多数现代浏览器等(Chrome、Edge、Safari)采用。同时JS也从以前浏览器单一的运行时(Runtime)演变到可以在服务端运行的NodeJS(基于V8)运行时，为它提供不同平台的运行时环境。</p>
+<p>JS是一个单线程的动态解释性语言，需要通过JS<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/JavaScript%E5%BC%95%E6%93%8E">引擎(JS Engine)</a>进行解释(翻译)成对应的字节码、机器码然后才会运行。随着网页复杂性和性能要求的提高，JS引擎也经历了从<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/SpiderMonkey">SpiderMonkey</a>到<a target="_blank" rel="noopener" href="https://v8.dev/">V8(由google开发)</a>的变革，而由谷歌开发的V8引擎最为出色，目前已被大多数现代浏览器等(Chrome、Edge、Safari)采用。同时JS也从以前浏览器单一的运行时(Runtime)演变到可以在服务端运行的NodeJS(基于V8)运行时，为它提供不同平台的运行时环境。</p>
 <ul>
 <li><strong>Runtime</strong>：由JavaScript的宿主环境提供额外的属性和方法，如浏览器提供了用户交互和一些异步任务的功能。</li>
 <li><strong>Engine</strong>：为JavaScript解析和执行提供环境条件(类似Java虚拟机)，并完成内存分配和垃圾回收等等。</li>
@@ -1927,7 +1920,7 @@ Math.trunc(d);
       
         <div class="license-meta-item license-meta-date">
           <div>Updated on</div>
-          <div>2023-09-30 21:02</div>
+          <div>2023-09-30 21:43</div>
         </div>
       
       
