@@ -32,7 +32,7 @@
 <meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9fcd4f3cf530466286ae7bd7438aa6bf~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=344&h=265&s=84625&e=png&b=1d1e23">
 <meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/61f7d6994acb405b857a65f50587b1f3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=367&h=271&s=79401&e=png&b=1d1e23">
 <meta property="article:published_time" content="2023-09-04T09:50:28.000Z">
-<meta property="article:modified_time" content="2023-09-23T02:09:31.546Z">
+<meta property="article:modified_time" content="2023-10-13T12:22:52.505Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="backdoors101">
 <meta property="article:tag" content="持续更新中">
@@ -257,7 +257,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          5.3k words
+          5.7k words
         
       </span>
     
@@ -268,7 +268,7 @@
         
         
         
-          45 mins
+          48 mins
         
       </span>
     
@@ -310,7 +310,7 @@
               <p class="note note-info">
                 
                   
-                    Last updated on 2023-09-23 10:09
+                    Last updated on 2023-10-13 20:22
                   
                 
               </p>
@@ -368,6 +368,7 @@
 </ul>
 <h1 id="4-参与者本地的训练过程"><a href="#4-参与者本地的训练过程" class="headerlink" title="4.参与者本地的训练过程"></a>4.参与者本地的训练过程</h1><p><strong>实现</strong>：<code>training</code>文件里</p>
 <p>实现思路如下：</p>
+<p>​	0.在之前对数据集进行处理的过程中，如何需要设置非IID条件，可以直接设置狄利克雷分布为true即可。</p>
 <ol>
 <li>将全局模型复制到本地模型中，实现：<code>fl_task</code>文件中<code>copy_params</code></li>
 <li>选择优化器SGD-随机梯度下降算法，用于优化损失函数，实现：<code>task</code>文件中的<code>make_optimizer</code></li>
@@ -475,25 +476,25 @@
 
 
 <p>代码①的结果为：</p>
-<p align=center><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c0feca889cb6474ba9c2cf579b1ee953~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=537&h=293&s=89757&e=png&b=1d1e23" srcset="/img/loading.gif" lazyload alt="image.png"  width="50%"/></p>
+<p align=center><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c0feca889cb6474ba9c2cf579b1ee953~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=537&h=293&s=89757&e=png&b=1d1e23" srcset="/img/loading.gif" lazyload width="50%"/></p>
 
 <p>代码②的结果为：</p>
-<p align=center><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d4a83c0757da4dcda0ebdbb7623512c6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=495&h=211&s=80530&e=png&b=1d1e23" srcset="/img/loading.gif" lazyload alt="image.png"  width="50%"/></p>
+<p align=center><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d4a83c0757da4dcda0ebdbb7623512c6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=495&h=211&s=80530&e=png&b=1d1e23" srcset="/img/loading.gif" lazyload width="50%"/></p>
 
 <p>代码③的结果：先打印整个，再打印每一层。递归出了每一层</p>
-<p align=center><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5ba6e90050ef4d3c83602ca5d19bb2f7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=598&h=633&s=279245&e=png&b=1d1e23" srcset="/img/loading.gif" lazyload alt="image.png" width="50%" /></p>
+<p align=center><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5ba6e90050ef4d3c83602ca5d19bb2f7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=598&h=633&s=279245&e=png&b=1d1e23" srcset="/img/loading.gif" lazyload width="50%" /></p>
 
 <p>代码④的结果：</p>
-<p align=center><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7d7aea08535e46cf9e0ab973aa5d9a9c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=525&h=213&s=93798&e=png&b=1d1e23" srcset="/img/loading.gif" lazyload alt="image.png" width="50%" /></p>
+<p align=center><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7d7aea08535e46cf9e0ab973aa5d9a9c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=525&h=213&s=93798&e=png&b=1d1e23" srcset="/img/loading.gif" lazyload width="50%" /></p>
 
 <p>代码⑤的结果：</p>
-<p align=center><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b1042830e9524ae3b46ee1d8bccc299d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=522&h=241&s=85377&e=png&b=1d1e23" srcset="/img/loading.gif" lazyload alt="image.png" width="50%" /></p>
+<p align=center><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b1042830e9524ae3b46ee1d8bccc299d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=522&h=241&s=85377&e=png&b=1d1e23" srcset="/img/loading.gif" lazyload width="50%" /></p>
 
 <p>代码⑥的结果：</p>
-<p align=center><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9fcd4f3cf530466286ae7bd7438aa6bf~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=344&h=265&s=84625&e=png&b=1d1e23" srcset="/img/loading.gif" lazyload alt="image.png"  width="40%"/></p>
+<p align=center><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9fcd4f3cf530466286ae7bd7438aa6bf~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=344&h=265&s=84625&e=png&b=1d1e23" srcset="/img/loading.gif" lazyload  width="40%"/></p>
 
 <p>代码⑦的结果：</p>
-<p align=center><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/61f7d6994acb405b857a65f50587b1f3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=367&h=271&s=79401&e=png&b=1d1e23" srcset="/img/loading.gif" lazyload alt="image.png" width="40%" /></p>
+<p align=center><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/61f7d6994acb405b857a65f50587b1f3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=367&h=271&s=79401&e=png&b=1d1e23" srcset="/img/loading.gif" lazyload width="40%" /></p>
 
 
 
@@ -514,7 +515,15 @@
 <p>7.<a target="_blank" rel="noopener" href="https://blog.csdn.net/narcissus2_/article/details/114156102?spm=1001.2014.3001.5502">关于梯度爆炸和梯度消失的碎碎念_Mr. Water的博客-CSDN博客</a></p>
 <p>8.<a target="_blank" rel="noopener" href="https://blog.csdn.net/HERODING23/article/details/124826460?spm=1001.2014.3001.5502">【联邦学习实战】基于同态加密和差分隐私混合加密机制的FedAvg_联邦学习fedavg 差分隐私_HERODING77的博客-CSDN博客</a></p>
 <p>9.<a target="_blank" rel="noopener" href="https://blog.csdn.net/HERODING23/article/details/123815542">【阅读笔记】联邦学习实战——联邦学习攻防实战_paillier实现联邦学习_HERODING77的博客-CSDN博客</a></p>
-<h1 id="文末"><a href="#文末" class="headerlink" title="文末"></a>文末</h1>
+<h1 id="文末-目前进度"><a href="#文末-目前进度" class="headerlink" title="文末-目前进度"></a>文末-目前进度</h1><p>1.目前还要做2次实验，一次是单次攻击的时候，增加敌方权重，设置为50和100（10-12~13）（√）</p>
+<p>效果不明显，去查了资料，为10的时候最好，然后攻击者肯定不知道这些参数，因此可以不停的尝试提高权重。当然还可以考虑调整别的后门攻击（pattern、白块、噪声）、比例因子（没效果–√）、<del>学习率</del>、非IID设置（狄利克雷分布为true）</p>
+<p>2.多次攻击的时候，白块和噪声已经完成，接着看看随机矩阵是什么问题（10-13），还需要考虑一下训练集、测试集、验证集的效果。</p>
+<p>3.做模型替换后门的多次攻击（10-14）</p>
+<p>4.将本地防御加进去，开始防御上面的四个攻击，并画好图（10-15~16）</p>
+<p>5.将服务器端的防御加进去（10-17）</p>
+<p>6.训练整体的防御效果（10.18）</p>
+<p>7.开始写论文画图，（10-19）</p>
+
                 
               </div>
             
@@ -580,7 +589,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Updated on</div>
-          <div>2023-09-23 10:09</div>
+          <div>2023-10-13 20:22</div>
         </div>
       
       
@@ -621,8 +630,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/09/04/%F0%9F%93%A3-%E6%AF%8F%E6%97%A5%E5%A4%8D%E4%B9%A0%E5%86%85%E5%AE%B9%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%E4%B8%AD%EF%BC%89/" title="📣 每日复习内容">
-                        <span class="hidden-mobile">📣 每日复习内容</span>
+                      <a href="/2023/09/04/%F0%9F%93%A3-%E6%94%BB%E5%87%BB%E5%AE%9E%E9%AA%8C/" title="📣 攻击实验">
+                        <span class="hidden-mobile">📣 攻击实验</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

@@ -24,7 +24,7 @@
 <meta property="og:description" content="给全局模型参数加高斯噪声：$w{{_{G}^{r}}^{\prime }}&#x3D;w_{G}^{r}+N(0,{{\sigma }^{2}})$，其中$\sigma &#x3D;\sqrt{2\operatorname{In}\frac{1.25}{\delta }}\times \frac{\Delta f}{\epsilon }$，表示标准差，$\sigma^2$表示方差  $N(0,{{\sigma }">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-09-15T01:22:40.000Z">
-<meta property="article:modified_time" content="2023-09-16T02:21:40.370Z">
+<meta property="article:modified_time" content="2023-10-12T02:43:23.929Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="持续更新中">
 <meta property="article:tag" content="防御实验">
@@ -248,7 +248,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          280 words
+          1.7k words
         
       </span>
     
@@ -259,7 +259,7 @@
         
         
         
-          3 mins
+          15 mins
         
       </span>
     
@@ -301,7 +301,7 @@
               <p class="note note-info">
                 
                   
-                    Last updated on 2023-09-16 10:21
+                    Last updated on 2023-10-12 10:43
                   
                 
               </p>
@@ -318,6 +318,22 @@ $N(0,{{\sigma }^{2}})$表示从中心为 0 且方差为${\sigma }^{2}$的高斯�
 
 问题1：如何设置高斯噪声的标准差？可以先设置为0.01
 
+
+
+<h1 id="1-本地防御"><a href="#1-本地防御" class="headerlink" title="1.本地防御"></a>1.本地防御</h1><h2 id="1-频谱过滤（√）"><a href="#1-频谱过滤（√）" class="headerlink" title="1.频谱过滤（√）"></a>1.频谱过滤（√）</h2><h3 id="1-设置参数"><a href="#1-设置参数" class="headerlink" title="1.设置参数"></a>1.设置参数</h3><p>1.在cifar_fed.yaml中添加如下参数：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-comment"># defence 这是自己写的</span><br><span class="hljs-attr">spectre_filter:</span> <span class="hljs-literal">True</span><br> <span class="hljs-comment"># 采样频率</span><br><span class="hljs-attr">f_sample:</span> <span class="hljs-number">1000</span><br><span class="hljs-attr">f_pass:</span> <span class="hljs-number">150</span><br><span class="hljs-attr">f_stop:</span> <span class="hljs-number">250</span><br><span class="hljs-attr">Ap:</span> <span class="hljs-number">1</span><br><span class="hljs-attr">As:</span> <span class="hljs-number">20</span><br></code></pre></td></tr></table></figure>
+
+<p>2.在parameter.py中添加如下代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># defence</span><br>spectre_filter: <span class="hljs-built_in">bool</span> = <span class="hljs-literal">False</span><br>f_sample: <span class="hljs-built_in">int</span> = <span class="hljs-literal">None</span><br>f_pass: <span class="hljs-built_in">int</span> = <span class="hljs-literal">None</span><br>f_stop: <span class="hljs-built_in">int</span> = <span class="hljs-literal">None</span><br>Ap: <span class="hljs-built_in">int</span> = <span class="hljs-literal">None</span><br>As: <span class="hljs-built_in">int</span> = <span class="hljs-literal">None</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="2-设计低通滤波器"><a href="#2-设计低通滤波器" class="headerlink" title="2.设计低通滤波器"></a>2.设计低通滤波器</h3><p>在atack.py中的compute_blind_loss加如下代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 自己的客户端防御</span><br><span class="hljs-keyword">if</span> self.params.spectre_filter:<br>    <span class="hljs-comment"># 对每个图片进行DCT转换，并进行过滤操作</span><br>    batch_back = self.local_spectre(batch_back)<br></code></pre></td></tr></table></figure>
+
+<p>下面是local_spectre方法的实现过程：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">local_spectre</span>(<span class="hljs-params">self, batch</span>):                                         <span class="hljs-comment"># 本地频谱过滤</span><br>    <span class="hljs-comment"># 先设计低通滤波器</span><br>    b0, a0 = self.lowpassFilter()<br>    <span class="hljs-comment"># 转换图像，batch有batch.inputs[0]、batch.labels[0]</span><br>    filter_batch = batch.clone()<br>    <span class="hljs-comment"># 将图像转换为灰度图像，并利用数字低通滤波器对图片进行滤波</span><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(self.params.batch_size):<br>        <span class="hljs-comment"># 转为黑白图片</span><br>        gray_image = torch.mean(batch.inputs[i], dim=<span class="hljs-number">0</span>)<br>        <span class="hljs-comment"># 将NumPy数组复制以确保没有负步幅</span><br>        filter_img = signal.filtfilt(b0, a0, gray_image)<br>        filter_batch.inputs[i] = torch.from_numpy(np.copy(filter_img))<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;------------------------已完成频谱过滤&quot;</span>)<br>    sys.exit(<span class="hljs-number">1</span>)<br>    <span class="hljs-keyword">return</span> filter_batch<br></code></pre></td></tr></table></figure>
+
+<p>下面是低通滤波器的实现过程：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 低通滤波器设计</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">lowpassFilter</span>(<span class="hljs-params">self</span>):<br>    <span class="hljs-comment"># 设计巴特沃斯低通滤波器参数：先归一化，然后转换到模拟滤波器指标</span><br>    wp = <span class="hljs-number">2</span> * self.params.f_pass / self.params.f_sample<br>    ws = <span class="hljs-number">2</span> * self.params.f_stop / self.params.f_sample<br>    Wp = <span class="hljs-number">2</span> * self.params.f_sample * np.tan(wp / <span class="hljs-number">2</span>)<br>    Ws = <span class="hljs-number">2</span> * self.params.f_sample * np.tan(ws / <span class="hljs-number">2</span>)<br>    <span class="hljs-comment"># 求滤波器的阶数和3db系数，为true表示模拟滤波器</span><br>    N, Wn = signal.buttord(Wp, Ws, self.params.Ap, self.params.As, analog=<span class="hljs-literal">True</span>)<br>    <span class="hljs-comment"># 求低通滤波器的系数</span><br>    b, a = signal.butter(N, Wn, btype=<span class="hljs-string">&#x27;low&#x27;</span>, analog=<span class="hljs-literal">True</span>)<br>    <span class="hljs-comment"># 双线性转换为数字滤波器</span><br>    b0, a0 = signal.bilinear(b, a, fs=self.params.f_sample)<br>    <span class="hljs-keyword">return</span> b0, a0<br></code></pre></td></tr></table></figure>
 
 
                 
@@ -385,7 +401,7 @@ $N(0,{{\sigma }^{2}})$表示从中心为 0 且方差为${\sigma }^{2}$的高斯�
       
         <div class="license-meta-item license-meta-date">
           <div>Updated on</div>
-          <div>2023-09-16 10:21</div>
+          <div>2023-10-12 10:43</div>
         </div>
       
       

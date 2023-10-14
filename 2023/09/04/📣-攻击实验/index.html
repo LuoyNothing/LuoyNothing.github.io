@@ -16,15 +16,15 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="我想做哪些攻击呢？ 白块、随机矩阵、高斯噪声、椒盐噪声、语义后门、模型替换后门 引入高频信号可能会改变图像的视觉外观 1.单次攻击1.白块攻击（√）修改参数： 12345678910111213141516# 后门攻击的方式synthesizer: Baikuai# 通信轮次，在不同轮次注入后门则选择的总轮次不同，50轮设置150轮，100轮设置200轮，因为我主要是想看注入后门之后100轮的后门">
+    <meta name="description" content="我想做哪些攻击呢？ 白块、随机矩阵、高斯噪声、椒盐噪声、语义后门、模型替换后门 引入高频信号可能会改变图像的视觉外观 1.单次攻击（√）1.白块攻击（√）修改参数： 1234567891011121314# 后门攻击的方式synthesizer: Baikuai# 通信轮次，在不同轮次注入后门则选择的总轮次不同，50轮设置150轮，100轮设置200轮，因为我主要是想看注入后门之后100轮的后门持">
 <meta property="og:type" content="article">
 <meta property="og:title" content="📣 攻击实验">
 <meta property="og:url" content="https://luoynothing.github.io/2023/09/04/%F0%9F%93%A3-%E6%94%BB%E5%87%BB%E5%AE%9E%E9%AA%8C/index.html">
 <meta property="og:site_name" content="归故里">
-<meta property="og:description" content="我想做哪些攻击呢？ 白块、随机矩阵、高斯噪声、椒盐噪声、语义后门、模型替换后门 引入高频信号可能会改变图像的视觉外观 1.单次攻击1.白块攻击（√）修改参数： 12345678910111213141516# 后门攻击的方式synthesizer: Baikuai# 通信轮次，在不同轮次注入后门则选择的总轮次不同，50轮设置150轮，100轮设置200轮，因为我主要是想看注入后门之后100轮的后门">
+<meta property="og:description" content="我想做哪些攻击呢？ 白块、随机矩阵、高斯噪声、椒盐噪声、语义后门、模型替换后门 引入高频信号可能会改变图像的视觉外观 1.单次攻击（√）1.白块攻击（√）修改参数： 1234567891011121314# 后门攻击的方式synthesizer: Baikuai# 通信轮次，在不同轮次注入后门则选择的总轮次不同，50轮设置150轮，100轮设置200轮，因为我主要是想看注入后门之后100轮的后门持">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-09-04T09:50:28.000Z">
-<meta property="article:modified_time" content="2023-09-23T02:09:31.546Z">
+<meta property="article:modified_time" content="2023-10-13T12:22:52.505Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="持续更新中">
 <meta property="article:tag" content="攻击实验">
@@ -248,7 +248,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.2k words
+          6.3k words
         
       </span>
     
@@ -259,7 +259,7 @@
         
         
         
-          19 mins
+          53 mins
         
       </span>
     
@@ -301,7 +301,7 @@
               <p class="note note-info">
                 
                   
-                    Last updated on 2023-09-23 10:09
+                    Last updated on 2023-10-13 20:22
                   
                 
               </p>
@@ -312,20 +312,20 @@
                 <p>我想做哪些攻击呢？</p>
 <p>白块、随机矩阵、高斯噪声、椒盐噪声、语义后门、模型替换后门</p>
 <p>引入高频信号可能会改变图像的视觉外观</p>
-<h1 id="1-单次攻击"><a href="#1-单次攻击" class="headerlink" title="1.单次攻击"></a>1.单次攻击</h1><h2 id="1-白块攻击（√）"><a href="#1-白块攻击（√）" class="headerlink" title="1.白块攻击（√）"></a>1.白块攻击（√）</h2><p>修改参数：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 后门攻击的方式</span><br>synthesizer: Baikuai<br><span class="hljs-comment"># 通信轮次，在不同轮次注入后门则选择的总轮次不同，50轮设置150轮，100轮设置200轮，因为我主要是想看注入后门之后100轮的后门持久情况</span><br>epochs: <span class="hljs-number">300</span><br><span class="hljs-comment"># 本地训练轮次</span><br>fl_local_epochs: <span class="hljs-number">2</span><br><span class="hljs-comment"># 单次攻击</span><br>fl_single_epoch_attack: <span class="hljs-literal">True</span><br><span class="hljs-comment"># 这是模型替换后门增加权重的，这里默认100，我改为1</span><br>fl_weight_scale: <span class="hljs-number">1</span><br><span class="hljs-comment"># 攻击者数量</span><br>fl_number_of_adversaries: <span class="hljs-number">10</span><br><span class="hljs-comment"># 单次攻击轮次</span><br>fl_single_epoch_attack: <span class="hljs-number">200</span><br><span class="hljs-comment"># 恶意参与方的样本比例</span><br>poisoning_proportion: <span class="hljs-number">0.5</span><br></code></pre></td></tr></table></figure>
+<h1 id="1-单次攻击（√）"><a href="#1-单次攻击（√）" class="headerlink" title="1.单次攻击（√）"></a>1.单次攻击（√）</h1><h2 id="1-白块攻击（√）"><a href="#1-白块攻击（√）" class="headerlink" title="1.白块攻击（√）"></a>1.白块攻击（√）</h2><p>修改参数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 后门攻击的方式</span><br>synthesizer: Baikuai<br><span class="hljs-comment"># 通信轮次，在不同轮次注入后门则选择的总轮次不同，50轮设置150轮，100轮设置200轮，因为我主要是想看注入后门之后100轮的后门持久情况</span><br>epochs: <span class="hljs-number">150</span><br><span class="hljs-comment"># 本地训练轮次</span><br>fl_local_epochs: <span class="hljs-number">2</span><br><span class="hljs-comment"># 这是模型替换后门增加权重的，这里默认100，我改为1</span><br>fl_weight_scale: <span class="hljs-number">1</span><br><span class="hljs-comment"># 攻击者数量</span><br>fl_number_of_adversaries: <span class="hljs-number">10</span><br><span class="hljs-comment"># 单次攻击轮次</span><br>fl_single_epoch_attack: <span class="hljs-number">50</span><br><span class="hljs-comment"># 恶意参与方的样本比例</span><br>poisoning_proportion: <span class="hljs-number">0.5</span><br></code></pre></td></tr></table></figure>
 
 <p>取名：cifar10_resnet18_oneBaikuai_50_10：表示数据集-模型-单次pattern攻击-攻击轮次-攻击者数量</p>
-<p>单次攻击的变量：1.攻击者数量；2.不同的攻击轮次。我这里先跑一下不同的攻击轮次，然后攻击之后100轮的情况，如下所示：</p>
+<p>单次攻击的变量：1.攻击者数量（10）；2.不同的攻击轮次（50）。我这里先跑一下不同的攻击轮次，然后攻击之后100轮的情况，如下所示：</p>
 <p>画图1：pattern攻击在不同的攻击轮次的后门持久性，包括（50—√    ,100,150,200）</p>
 <h2 id="2-pattern（随机矩阵）后门攻击（√）"><a href="#2-pattern（随机矩阵）后门攻击（√）" class="headerlink" title="2.pattern（随机矩阵）后门攻击（√）"></a>2.pattern（随机矩阵）后门攻击（√）</h2><p>修改参数：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 后门攻击的方式</span><br>synthesizer: Pattern<br><span class="hljs-comment"># 通信轮次</span><br>epochs: <span class="hljs-number">150</span><br><span class="hljs-comment"># 本地训练轮次</span><br>fl_local_epochs: <span class="hljs-number">2</span><br><span class="hljs-comment"># 单次攻击</span><br>fl_single_epoch_attack: <span class="hljs-literal">True</span><br><span class="hljs-comment"># 这是模型替换后门增加权重的，这里默认100，我改为1</span><br>fl_weight_scale: <span class="hljs-number">1</span><br><span class="hljs-comment"># 攻击者数量</span><br>fl_number_of_adversaries: <span class="hljs-number">10</span><br><span class="hljs-comment"># 单次攻击轮次</span><br>fl_single_epoch_attack: <span class="hljs-number">200</span><br><span class="hljs-comment"># 恶意参与方的样本比例</span><br>poisoning_proportion: <span class="hljs-number">0.5</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 后门攻击的方式</span><br>synthesizer: Pattern<br><span class="hljs-comment"># 通信轮次</span><br>epochs: <span class="hljs-number">150</span><br><span class="hljs-comment"># 本地训练轮次</span><br>fl_local_epochs: <span class="hljs-number">2</span><br><span class="hljs-comment"># 这是模型替换后门增加权重的，这里默认100，我改为1</span><br>fl_weight_scale: <span class="hljs-number">1</span><br><span class="hljs-comment"># 攻击者数量</span><br>fl_number_of_adversaries: <span class="hljs-number">10</span><br><span class="hljs-comment"># 单次攻击轮次</span><br>fl_single_epoch_attack: <span class="hljs-number">50</span><br><span class="hljs-comment"># 恶意参与方的样本比例</span><br>poisoning_proportion: <span class="hljs-number">0.5</span><br></code></pre></td></tr></table></figure>
 
 <p>取名：cifar10_resnet18_onePattern_50_10：表示数据集-模型-单次pattern攻击-攻击轮次-攻击者数量</p>
 <p>单次攻击的变量：1.攻击者数量；2.不同的攻击轮次。我这里先跑一下不同的攻击轮次，然后攻击之后100轮的情况，如下所示：</p>
 <p>画图1：pattern攻击在不同的攻击轮次的后门持久性，包括（50—√,100,150,200）</p>
-<h2 id="3-高斯噪声"><a href="#3-高斯噪声" class="headerlink" title="3.高斯噪声"></a>3.高斯噪声</h2><p>修改参数：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 后门攻击的方式</span><br>synthesizer: Noice<br><span class="hljs-comment"># 通信轮次</span><br>epochs: <span class="hljs-number">300</span><br><span class="hljs-comment"># 本地训练轮次</span><br>fl_local_epochs: <span class="hljs-number">2</span><br><span class="hljs-comment"># 单次攻击</span><br>fl_single_epoch_attack: <span class="hljs-literal">True</span><br><span class="hljs-comment"># 这是模型替换后门增加权重的，这里默认100，我改为1</span><br>fl_weight_scale: <span class="hljs-number">1</span><br><span class="hljs-comment"># 攻击者数量</span><br>fl_number_of_adversaries: <span class="hljs-number">10</span><br><span class="hljs-comment"># 单次攻击轮次</span><br>fl_single_epoch_attack: <span class="hljs-number">200</span><br><span class="hljs-comment"># 恶意参与方的样本比例</span><br>poisoning_proportion: <span class="hljs-number">0.5</span><br></code></pre></td></tr></table></figure>
+<h2 id="3-高斯噪声（√）"><a href="#3-高斯噪声（√）" class="headerlink" title="3.高斯噪声（√）"></a>3.高斯噪声（√）</h2><p>修改参数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 后门攻击的方式</span><br>synthesizer: Noice<br><span class="hljs-comment"># 通信轮次</span><br>epochs: <span class="hljs-number">150</span><br><span class="hljs-comment"># 本地训练轮次</span><br>fl_local_epochs: <span class="hljs-number">2</span><br><span class="hljs-comment"># 这是模型替换后门增加权重的，这里默认100，我改为1</span><br>fl_weight_scale: <span class="hljs-number">1</span><br><span class="hljs-comment"># 攻击者数量</span><br>fl_number_of_adversaries: <span class="hljs-number">10</span><br><span class="hljs-comment"># 单次攻击轮次</span><br>fl_single_epoch_attack: <span class="hljs-number">50</span><br><span class="hljs-comment"># 恶意参与方的样本比例</span><br>poisoning_proportion: <span class="hljs-number">0.5</span><br></code></pre></td></tr></table></figure>
 
 <p>取名：cifar10_resnet18_oneNoise_50_10：表示数据集-模型-单次pattern攻击-攻击轮次-攻击者数量</p>
 <p>单次攻击的变量：1.攻击者数量；2.不同的攻击轮次。我这里先跑一下不同的攻击轮次，然后攻击之后100轮的情况，如下所示：</p>
@@ -333,12 +333,57 @@
 <h2 id="4-语义后门攻击"><a href="#4-语义后门攻击" class="headerlink" title="4.语义后门攻击"></a>4.语义后门攻击</h2><p>1.cifar10数据集</p>
 <p>选择的特征图片：</p>
 <p>暂缓，因为要打标记，挺累的，可以换别的后门攻击来操作。</p>
-<h2 id="5-模型替换后门（√）"><a href="#5-模型替换后门（√）" class="headerlink" title="5.模型替换后门（√）"></a>5.模型替换后门（√）</h2><p>服务器收到客户端的更新根据下面公式聚合得到一个全局模型：$$G^{t+1}&#x3D;G^{t}+\frac{\eta}{n} \sum_{i&#x3D;1}^{m}\Delta \boldsymbol{w}_{i}^{r+1}$$，</p>
+<h2 id="5-模型替换后门（√）"><a href="#5-模型替换后门（√）" class="headerlink" title="5.模型替换后门（√）"></a>5.模型替换后门（√）</h2><p>服务器收到客户端的更新根据下面公式聚合得到一个全局模型：$$G^{t+1}&#x3D;G^{t}+\frac{\eta}{n} \sum_{i&#x3D;1}^{m}\Delta \boldsymbol{w}_{i}^{r+1}$$，其中n&#x3D;100, m&#x3D;10</p>
 <p>模型替换：$$X&#x3D;G^{t}+\frac{\eta}{n} \sum_{i&#x3D;1}^{m}\Delta \boldsymbol{w}_{i}^{r+1}$$</p>
 <p>随着训练轮次增多，$$\Delta \boldsymbol{w}<em>{i}^{r+1}→0$$，所以最后提交的恶意更新（假设第k个客户端为恶意客户端）为：$$\Delta \boldsymbol{w}</em>{k}^{r+1}&#x3D;\frac{n}{\eta} (X-G^{t})-\sum_{i&#x3D;1,i≠k}^{m}\Delta \boldsymbol{w}_{i}^{r+1} \approx \frac{n}{\eta}\left(X-G^{t}\right)$$</p>
-<p>**这种攻击将后门模型 X 的权重缩放为$$\gamma &#x3D;\frac{\eta}{n}$$**，以确保后门在平均聚合算法中存活，全局模型能够被 X 替换</p>
+<p>**这种攻击将后门模型 X 的权重缩放为$$\gamma &#x3D;\frac{n}{\eta}&#x3D;100&#x2F;10&#x3D;10$$**，以确保后门在平均聚合算法中存活，全局模型能够被 X 替换</p>
+<p>不知道 n 和 η 的攻击者可以通过每轮迭代地增加比例因子 γ 并测量模型在后门任务上的准确性来近似比例因子 γ。</p>
 <p><strong>这个攻击的实现很简单，就是提高恶意更新的权重。</strong>（已实现）</p>
-<h1 id="2-多次攻击"><a href="#2-多次攻击" class="headerlink" title="2.多次攻击"></a>2.多次攻击</h1><h1 id="遇到的问题："><a href="#遇到的问题：" class="headerlink" title="遇到的问题："></a>遇到的问题：</h1><p>1.联邦学习的更新范数差别太大了，以至于损失值为Nan，在fl_task的get_update_norm函数中打印的范数。</p>
+<p>这里使用pattern来实现单次的模型替换后门。</p>
+<p>修改参数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 后门攻击的方式</span><br>synthesizer: Pattern<br><span class="hljs-comment"># 通信轮次，在不同轮次注入后门则选择的总轮次不同，50轮设置150轮，100轮设置200轮，因为我主要是想看注入后门之后100轮的后门持久情况</span><br>epochs: <span class="hljs-number">150</span><br><span class="hljs-comment"># 本地训练轮次</span><br>fl_local_epochs: <span class="hljs-number">2</span><br><span class="hljs-comment"># 这是模型替换后门增加权重的，这里默认100，我改为1</span><br>fl_weight_scale: <span class="hljs-number">10</span><br><span class="hljs-comment"># 攻击者数量</span><br>fl_number_of_adversaries: <span class="hljs-number">2</span><br><span class="hljs-comment"># 单次攻击轮次</span><br>fl_single_epoch_attack: <span class="hljs-number">50</span><br><span class="hljs-comment"># 恶意参与方的样本比例</span><br>poisoning_proportion: <span class="hljs-number">0.5</span><br></code></pre></td></tr></table></figure>
+
+<p>取名：cifar10_onePatModel_50_2：表示数据集-模型-单次pattern攻击-攻击轮次-攻击者数量</p>
+<p>python training.py –name cifar10_onePatModel_50_2 –params configs&#x2F;cifar_fed.yaml，这里的客户端权重设置的是10.</p>
+<p>python training.py –name cifar10_onePatModel_50_2_weight50 –params configs&#x2F;cifar_fed.yaml，增加权重为50</p>
+<p>由于单次攻击且不加模型后门的后门攻击效果太差，因此这里就不在继续做单次攻击了。</p>
+<p>换白块进行模型替换攻击：cifar10_onePatModel_Baikuai_50_2_weight10，权重为10,50轮2个攻击者</p>
+<h1 id="2-多次攻击"><a href="#2-多次攻击" class="headerlink" title="2.多次攻击"></a>2.多次攻击</h1><h2 id="1-白块攻击（√）-1"><a href="#1-白块攻击（√）-1" class="headerlink" title="1.白块攻击（√）"></a>1.白块攻击（√）</h2><p>修改参数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 后门攻击的方式</span><br>synthesizer: Baikuai<br><span class="hljs-comment"># 通信轮次，在不同轮次注入后门则选择的总轮次不同，50轮设置150轮，100轮设置200轮，因为我主要是想看注入后门之后100轮的后门持久情况</span><br>epochs: <span class="hljs-number">300</span><br><span class="hljs-comment"># 本地训练轮次</span><br>fl_local_epochs: <span class="hljs-number">2</span><br><span class="hljs-comment"># 单次攻击</span><br>fl_single_epoch_attack: <span class="hljs-literal">False</span><br><span class="hljs-comment"># 这是模型替换后门增加权重的，这里默认100，我改为1</span><br>fl_weight_scale: <span class="hljs-number">1</span><br><span class="hljs-comment"># 攻击者数量</span><br>fl_number_of_adversaries: <span class="hljs-number">20</span><br><span class="hljs-comment"># 恶意参与方的样本比例</span><br>poisoning_proportion: <span class="hljs-number">0.5</span><br></code></pre></td></tr></table></figure>
+
+<p>取名：cifar10_resnet18_Baikuai_20：表示数据集-模型-白块攻击-攻击者数量，分别为cifar10_resnet18_Baikuai_20，cifar10_resnet18_Baikuai_25，cifar10_resnet18_Baikuai_30，cifar10_resnet18_Baikuai_35，cifar10_resnet18_Baikuai_40，cifar10_resnet18_Baikuai_45</p>
+<p>单次攻击的变量：攻击者数量（20-√,25-√,30-√,35-√,40-√,45-√,50-√）。</p>
+<p>画图1：白块攻击攻击在不同的攻击者数量下的后门精度，包括（20,25,30,35.40）</p>
+<p>python training.py –name cifar10_resnet18_Baikuai_20 –params configs&#x2F;cifar_fed.yaml</p>
+<p> tensorboard –logdir&#x3D;runs&#x2F;cifar10_resnet18_Baikuai_20</p>
+<h2 id="2-随机矩阵攻击"><a href="#2-随机矩阵攻击" class="headerlink" title="2.随机矩阵攻击"></a>2.随机矩阵攻击</h2><p>修改参数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 后门攻击的方式</span><br>synthesizer: Pattern<br><span class="hljs-comment"># 通信轮次，在不同轮次注入后门则选择的总轮次不同，50轮设置150轮，100轮设置200轮，因为我主要是想看注入后门之后100轮的后门持久情况</span><br>epochs: <span class="hljs-number">300</span><br><span class="hljs-comment"># 本地训练轮次</span><br>fl_local_epochs: <span class="hljs-number">2</span><br><span class="hljs-comment"># 单次攻击</span><br>fl_single_epoch_attack: <span class="hljs-literal">False</span><br><span class="hljs-comment"># 这是模型替换后门增加权重的，这里默认100，我改为1</span><br>fl_weight_scale: <span class="hljs-number">1</span><br><span class="hljs-comment"># 攻击者数量</span><br>fl_number_of_adversaries: <span class="hljs-number">20</span><br><span class="hljs-comment"># 恶意参与方的样本比例</span><br>poisoning_proportion: <span class="hljs-number">0.5</span><br></code></pre></td></tr></table></figure>
+
+<p>取名：cifar10_resnet18_Pattern_20：表示数据集-模型-后门攻击-攻击者数量，分别为cifar10_resnet18_Pattern_20，cifar10_resnet18_Pattern_25，cifar10_resnet18_Pattern_30，cifar10_resnet18_Pattern_35，cifar10_resnet18_Pattern_40，cifar10_resnet18_Pattern_45</p>
+<p>单次攻击的变量：攻击者数量（20-√,25-√,30-,35-,40-）。</p>
+<p>画图1：白块攻击攻击在不同的攻击者数量下的后门精度，包括（20,25,30,35,40）</p>
+<p>python training.py –name cifar10_resnet18_Pattern_20 –params configs&#x2F;cifar_fed.yaml</p>
+<p> tensorboard –logdir&#x3D;runs&#x2F;cifar10_resnet18_Pattern_20</p>
+<h2 id="2-噪声"><a href="#2-噪声" class="headerlink" title="2.噪声"></a>2.噪声</h2><p>修改参数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 后门攻击的方式</span><br>synthesizer: Noise<br><span class="hljs-comment"># 通信轮次，在不同轮次注入后门则选择的总轮次不同，50轮设置150轮，100轮设置200轮，因为我主要是想看注入后门之后100轮的后门持久情况</span><br>epochs: <span class="hljs-number">300</span><br><span class="hljs-comment"># 本地训练轮次</span><br>fl_local_epochs: <span class="hljs-number">2</span><br><span class="hljs-comment"># 单次攻击</span><br>fl_single_epoch_attack: <span class="hljs-literal">False</span><br><span class="hljs-comment"># 这是模型替换后门增加权重的，这里默认100，我改为1</span><br>fl_weight_scale: <span class="hljs-number">1</span><br><span class="hljs-comment"># 攻击者数量</span><br>fl_number_of_adversaries: <span class="hljs-number">20</span><br><span class="hljs-comment"># 恶意参与方的样本比例</span><br>poisoning_proportion: <span class="hljs-number">0.5</span><br></code></pre></td></tr></table></figure>
+
+<p>取名：cifar10_resnet18_Noise_20：表示数据集-模型-后门攻击-攻击者数量，分别为cifar10_resnet18_Noise_20，cifar10_resnet18_Noise_25，cifar10_resnet18_Noise_30，cifar10_resnet18_Noise_35，cifar10_resnet18_Noise_40，cifar10_resnet18_Noise_45</p>
+<p>单次攻击的变量：攻击者数量（20-√,25-√,30-√,35-√,40-√）。</p>
+<p>画图1：白块攻击攻击在不同的攻击者数量下的后门精度，包括（20,25,30,35,40）</p>
+<p>python training.py –name cifar10_resnet18_Noise_25 –params configs&#x2F;cifar_fed.yaml</p>
+<p> tensorboard –logdir&#x3D;runs&#x2F;cifar10_resnet18_Noise_20</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">pip --trusted-host pypi.python.org --trusted-host pypi.tuna.tsinghua.edu.cn install albumentations -i https://pypi.tuna.tsinghua.edu.cn/simple/<br></code></pre></td></tr></table></figure>
+
+<h1 id="遇到的问题："><a href="#遇到的问题：" class="headerlink" title="遇到的问题："></a>遇到的问题：</h1><p>🎗 1.联邦学习的更新范数差别太大了，以至于损失值为Nan，在fl_task的get_update_norm函数中打印的范数。</p>
+<p>🎗 2.在用Tensorboard –logdir进行打印时，噪声50轮单次攻击打印不出来，显示没有该文件</p>
+<p>解决：输入命令<code>tensorboard --logdir=&quot;F:\papercode\backdoors101\runs\cifar10_oneNoise_50_10&quot;</code></p>
+<p>采用<strong>绝对路径</strong>就可以打印了。</p>
+<p>🎗 3.ModuleNotFoundError: No module named ‘albumentations’</p>
+<p>解决：采用这个命令pip install albumentations会出现以下问题：</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-built_in">WARNING</span>: Retrying (Retry(total=<span class="hljs-number">4</span>, <span class="hljs-keyword">connect</span>=<span class="hljs-keyword">None</span>, <span class="hljs-keyword">read</span>=<span class="hljs-keyword">None</span>, redirect=<span class="hljs-keyword">None</span>, status=<span class="hljs-keyword">None</span>)) <span class="hljs-keyword">after</span> <span class="hljs-keyword">connection</span> broken <span class="hljs-keyword">by</span> <span class="hljs-string">&#x27;SSLError(&quot;Can&#x27;</span>t <span class="hljs-keyword">connect</span> <span class="hljs-keyword">to</span> HTTPS URL because the SSL module <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> available.&quot;)&#x27;: /simple/albumentations/<br>WARNING: Retrying (Retry(total=3, connect=None, read=None, redirect=None, status=None)) after connection broken by &#x27;SSLError(&quot;Can<span class="hljs-string">&#x27;t connect to HTTPS URL because the SSL module is not available.&quot;)&#x27;</span>: /simple/albumentations/。。。。<br></code></pre></td></tr></table></figure>
+
+<p>于是输入命令：<code>conda config --append channels conda-forge</code>来添加channel，然后使用<code>conda install albumentations</code>安装成功</p>
+<p>🎗 4. File “F:\mxj\代码版本2\backdoors101\synthesizers\noise_synthesizer.py”, line 67, in addnoise<br>    img &#x3D; img.numpy()<br>TypeError: can’t convert cuda:0 device type tensor to numpy. Use Tensor.cpu() to copy the tensor to host memory first.</p>
 
                 
               </div>
@@ -405,7 +450,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Updated on</div>
-          <div>2023-09-23 10:09</div>
+          <div>2023-10-13 20:22</div>
         </div>
       
       
@@ -436,9 +481,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/09/04/%F0%9F%93%A3-%E6%AF%8F%E6%97%A5%E5%A4%8D%E4%B9%A0%E5%86%85%E5%AE%B9%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%E4%B8%AD%EF%BC%89/" title="📣 每日复习内容">
+                      <a href="/2023/09/04/%F0%9F%93%A3-%E5%88%86%E6%9E%90%E5%AE%9E%E9%AA%8C%E8%BF%87%E7%A8%8B/" title="📣 分析实验过程">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">📣 每日复习内容</span>
+                        <span class="hidden-mobile">📣 分析实验过程</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -446,7 +491,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/09/04/%F0%9F%93%A3-%E9%9D%A2%E8%AF%95%E5%85%AB%E8%82%A1%E6%96%87%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%E4%B8%AD%EF%BC%89/" title="📣 每日复习内容">
+                      <a href="/2023/09/04/%F0%9F%93%A3-%E6%AF%8F%E6%97%A5%E5%A4%8D%E4%B9%A0%E5%86%85%E5%AE%B9%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%E4%B8%AD%EF%BC%89/" title="📣 每日复习内容">
                         <span class="hidden-mobile">📣 每日复习内容</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
